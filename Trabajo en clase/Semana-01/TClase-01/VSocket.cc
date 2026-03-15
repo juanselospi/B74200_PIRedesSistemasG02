@@ -39,8 +39,6 @@
  **/
 void VSocket::Init( char t, bool IPv6 ){
 
-   // int st = -1;
-
    this->sockId = -1;
   
    this->IPv6 = IPv6;
