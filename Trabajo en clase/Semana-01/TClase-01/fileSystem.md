@@ -1,0 +1,11 @@
+# Idea inicial del sistema de archivos
+
+Para este proyecto propongo un sistema de archivos sencillo, el objetivo principal es organizar los archivos de manera eficiente y permitir operaciones básicas de manejo de datos. La estructura de directorios será organizada utilizando un árbol red-black, lo que permite mantener los elementos balanceados y facilitar búsquedas, inserciones y eliminaciones de forma eficiente. Este sistema tendrá un directorio raíz desde el cual se podrán crear subdirectorios y dentro de estos se podrán almacenar archivos.
+
+Para cada archivo se tendrá un conjunto de metadatos que permiten identificarlo y administrarlo dentro del sistema. Entre estos metadatos se va a incluir el nombre del archivo, su tamaño, la fecha de creación, la fecha de última modificación, el tipo de archivo, los permisos de acceso y el usuario creador del archivo. Esta información va a permitir que mi sistema pueda manejar los archivos de manera organizada y controlar quién puede acceder a ellos.
+
+En cuanto a la organización de los datos en el disco, el almacenamiento se dividirá en bloques de 512 bytes. Cada archivo podrá ocupar uno o varios bloques dependiendo de su tamaño. Este sistema mantendrá un índice que indique qué bloques pertenecen a cada archivo, lo que permitirá localizar los datos cuando el usuario necesite leer o modificarlos. Este mismo índice también incluirá información sobre si un bloque está ocupado o libre, lo que facilita la administración del espacio disponible de almacenamiento.
+
+Se tiene planeado que el sistema soporte operaciones básicas como crear archivos, leer esos archivos, escribir en los archivos, borrar archivos y crear directorios para organizarlos. Además, el sistema permitirá organizar o consultar los archivos según diferentes criterios que el usuario prefiera, como el nombre del archivo, la fecha de última modificación o qué archivos han sido usados con mayor frecuencia.
+
+Finalmente, el sistema también incluirá mecanismos básicos de verificación para detectar errores que puedan aparecer en los archivos. Entre estos se consideran revisiones de bloques dañados y chequeos de consistencia simples para detectar si alguna parte de un archivo está corrupta o incompleta. Con estas ideas iniciales, el objetivo de mi filesystem es ofrecer una forma clara y optima de administrar archivos.
