@@ -7,7 +7,7 @@ CXX := g++
 CFLAGS := -g -c
 CXXFLAGS := -g -c
 DEPS := Socket.h
-TARGETS := ipv4-test.out ipv6-test.out
+TARGETS := ipv4-test.out ipv6-test.out clienteServidor.out
 
 ALL := $(TARGETS)
 
@@ -24,6 +24,9 @@ ipv4-test.out: ipv4-test.o Socket.o VSocket.o
 ipv6-test.out: ipv6-test.o Socket.o VSocket.o
 	$(CXX) -g ipv6-test.o Socket.o VSocket.o -o $@
 
+clienteServidor.out: clienteServidor.o
+	$(CXX) -g clienteServidor.o -o $@ -pthread
+	
 clean:
 	@rm -f *.o *.out
 
