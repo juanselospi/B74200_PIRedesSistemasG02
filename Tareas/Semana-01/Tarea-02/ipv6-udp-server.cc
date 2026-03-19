@@ -26,9 +26,9 @@ int main() {
    VSocket * server;
    int len, n; 
    int sockfd;
-   struct sockaddr other;
+   struct sockaddr_in6 other;
    char buffer[MAXLINE]; 
-   char *hello = (char *) "Hello from CI0123 server 2026"; 
+   char *hello = (char *) "Hello from B74200 server 2026"; 
 	
    server = new Socket( 'd', true );
    server->Bind( PORT );

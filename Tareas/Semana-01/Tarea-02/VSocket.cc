@@ -38,12 +38,31 @@
  **/
 void VSocket::Init( char t, bool IPv6 ){
 
-   int st = -1;
+   this->sockId = -1;
+   this->type = t;
+   this->IPv6 = IPv6;
 
-   if ( -1 == st ) {
-      throw std::runtime_error( "VSocket::Init, (reason)" );
+   int family;
+   int SocketType;
+
+   if(this->IPv6) {
+      family = AF_INET6;
+   } else {
+      family = AF_INET;
    }
 
+   if(this->type == 's') {
+      SocketType = SOCK_STREAM;
+   } else {
+      SocketType = SOCK_DGRAM;
+   }
+
+   this->sockId = socket(family, SocketType, 0);
+
+
+   if ( -1 == this->sockId ) {
+      throw std::runtime_error( "VSocket::Init, (reason)" );
+   }
 }
 
 
@@ -64,12 +83,15 @@ VSocket::~VSocket() {
   *
  **/
 void VSocket::Close(){
-   int st = -1;
+  
+   if(this->sockId != -1) {
 
-   if ( -1 == st ) {
-      throw std::runtime_error( "VSocket::Close()" );
+      int st = close(this->sockId);
+
+      if ( -1 == st ) {
+         throw std::runtime_error( "VSocket::Close()" );
+      }
    }
-
 }
 
 
@@ -85,12 +107,22 @@ int VSocket::TryToConnect( const char * hostip, int port ) {
 
    int st = -1;
 
+   struct sockaddr_in6 host6;
+
+   memset(&host6, 0, sizeof(host6));
+
+   host6.sin6_family = AF_INET6;
+   host6.sin6_port = htons(port);
+
+   inet_pton(AF_INET6, hostip, &host6.sin6_addr);
+
+   st = connect(this->sockId, (struct sockaddr*) &host6, sizeof(host6));
+
    if ( -1 == st ) {
-      throw std::runtime_error( "VSocket::TryToConnect" );
+      throw std::runtime_error( "VSocket::TryToConnect()" );
    }
 
    return st;
-
 }
 
 
@@ -124,8 +156,19 @@ int VSocket::TryToConnect( const char *host, const char *service ) {
 int VSocket::Bind( int port ) {
    int st = -1;
 
-   return st;
+   this->port = port;
 
+   struct sockaddr_in6 host6;
+
+   memset(&host6, 0, sizeof(host6));
+
+   host6.sin6_family = AF_INET6;
+   host6.sin6_addr = in6addr_any;
+   host6.sin6_port = htons(port);
+
+   st = bind(this->sockId, (struct sockaddr*) &host6, sizeof(host6));
+
+   return st;
 }
 
 
@@ -142,8 +185,13 @@ int VSocket::Bind( int port ) {
 size_t VSocket::sendTo( const void * buffer, size_t size, void * addr ) {
    int st = -1;
 
-   return st;
+   st = sendto(this->sockId, buffer, size, 0, (struct sockaddr*) addr, sizeof(struct sockaddr_in6));
 
+   if( -1 == st ) {
+      throw std::runtime_error( "VSocket::sendTo()" );
+   }
+
+   return st;
 }
 
 
@@ -162,7 +210,14 @@ size_t VSocket::sendTo( const void * buffer, size_t size, void * addr ) {
 size_t VSocket::recvFrom( void * buffer, size_t size, void * addr ) {
    int st = -1;
 
-   return st;
+   socklen_t len = sizeof(struct sockaddr_in6);
 
+   st = recvfrom(this->sockId, buffer, size, 0, (struct sockaddr*) addr, &len);
+
+   if( -1 == st )  {
+      throw std::runtime_error( "VSocket::recvFrom()" );
+   }
+
+   return st;
 }
 
