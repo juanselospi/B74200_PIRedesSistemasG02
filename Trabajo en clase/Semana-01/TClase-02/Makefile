@@ -25,6 +25,9 @@ ipv4-udp-client.out: ipv4-udp-client.o VSocket.o Socket.o
 ipv4-udp-server.out: ipv4-udp-server.o VSocket.o Socket.o
 	$(CXX) -g ipv4-udp-server.o VSocket.o Socket.o -o $@
 
+legoSimIPC.out: legoSimIPC.cc
+	$(CXX) -g -pthread legoSimIPC.cc -o legoSimIPC.out
+
 clean:
 	@rm -f *.o *.out
 
