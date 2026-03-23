@@ -100,6 +100,14 @@ void SSLSocket::InitSSL( bool serverContext ) {
 
    this->InitContext( serverContext );
 
+   ssl = SSL_new((SSL_CTX *) this->Context);
+
+   if ( nullptr == ssl ) {
+      throw std::runtime_error("SSLSocket::InitSSL");
+   }
+
+   this->BIO = (void *) ssl;
+
 }
 
 
@@ -114,14 +122,29 @@ void SSLSocket::InitContext( bool serverContext ) {
    const SSL_METHOD * method;
    SSL_CTX * context;
 
+   SSL_library_init();
+   OpenSSL_add_all_algorithms();
+   SSL_load_error_strings();
+
    if ( serverContext ) {
+
+      method = TLS_server_method();
    } else {
+
+      method = TLS_client_method();
    }
 
    if ( nullptr == method ) {
-      throw std::runtime_error( "SSLSocket::InitContext( bool )" );
+      throw std::runtime_error( "SSLSocket::InitContext( method )" );
    }
 
+   context = SSL_CTX_new(method);
+
+   if ( nullptr == context ) {
+      throw std::runtime_error( "SSLSocket::InitContext( context )" );
+   }
+
+   this->Context = (void *) context;
 }
 
 
@@ -152,6 +175,21 @@ int SSLSocket::Connect( const char * hostName, int port ) {
 
    st = this->TryToConnect( hostName, port );		// Establish a non ssl connection first
 
+   if ( 0 > st ) {
+      throw std::runtime_error( "TCP connection failed" );
+   }
+
+   SSL * ssl = (SSL *) this->BIO;
+
+   SSL_set_fd( ssl, this->sockId ); // asociar socket al SSL
+
+   st = SSL_connect( ssl ); // conecto
+
+   if ( 0 >= st ) {
+      ERR_print_errors_fp(stderr);
+      throw std::runtime_error( "SSL_connect failed" );
+   }
+
    return st;
 
 }
@@ -172,6 +210,21 @@ int SSLSocket::Connect( const char * host, const char * service ) {
 
    st = this->TryToConnect( host, service );
 
+   if ( 0 > st ) {
+      throw std::runtime_error( "TCP connection failed" );
+   }
+
+   SSL * ssl = (SSL *) this->BIO;
+
+   SSL_set_fd( ssl, this->sockId );
+
+   st = SSL_connect( ssl );
+
+   if ( 0 >= st) {
+      ERR_print_errors_fp(stderr);
+      throw std::runtime_error( "SSL_connect failed" );
+   }
+
    return st;
 
 }
@@ -191,6 +244,10 @@ int SSLSocket::Connect( const char * host, const char * service ) {
  **/
 size_t SSLSocket::Read( void * buffer, size_t size ) {
    int st = -1;
+
+   SSL * ssl = (SSL *) this->BIO;
+
+   st = SSL_read( ssl, buffer, size );
 
    if ( -1 == st ) {
       throw std::runtime_error( "SSLSocket::Read( void *, size_t )" );
@@ -214,13 +271,8 @@ size_t SSLSocket::Read( void * buffer, size_t size ) {
   *
  **/
 size_t SSLSocket::Write( const char * string ) {
-   int st = -1;
-
-   if ( -1 == st ) {
-      throw std::runtime_error( "SSLSocket::Write( const char * )" );
-   }
-
-   return st;
+   
+   return this->Write( string, strlen(string) );
 
 }
 
@@ -240,6 +292,10 @@ size_t SSLSocket::Write( const char * string ) {
 size_t SSLSocket::Write( const void * buffer, size_t size ) {
    int st = -1;
 
+   SSL * ssl = (SSL *) this->BIO;
+
+   st = SSL_write( ssl, buffer, size );
+
    if ( -1 == st ) {
       throw std::runtime_error( "SSLSocket::Write( void *, size_t )" );
    }
@@ -257,7 +313,7 @@ void SSLSocket::ShowCerts() {
    X509 *cert;
    char *line;
 
-   cert = SSL_get_peer_certificate( (SSL *) this->SSLStruct );		 // Get certificates (if available)
+   cert = SSL_get_peer_certificate( (SSL *) this->BIO );		 // Get certificates (if available)
    if ( nullptr != cert ) {
       printf("Server certificates:\n");
       line = X509_NAME_oneline( X509_get_subject_name( cert ), 0, 0 );
@@ -280,7 +336,7 @@ void SSLSocket::ShowCerts() {
  **/
 const char * SSLSocket::GetCipher() {
 
-   return SSL_get_cipher( reinterpret_cast<SSL *>( this->SSLStruct ) );
+   return SSL_get_cipher( reinterpret_cast<SSL *>( this->BIO ) );
 
 }
 

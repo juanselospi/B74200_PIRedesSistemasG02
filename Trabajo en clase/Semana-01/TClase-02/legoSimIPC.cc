@@ -207,7 +207,7 @@ void* servidor(void* arg) {
     pthread_exit(NULL);
 }
 
-// ---------------- MAIN ----------------
+
 int main() {
 
     pthread_t hilos[3];

@@ -38,12 +38,35 @@
  **/
 void VSocket::Init( char t, bool IPv6 ){
 
-   int st = -1;
+   this->sockId = -1;
 
-   if ( -1 == st ) {
-      throw std::runtime_error( "VSocket::BuildSocket, (reason)" );
+   this->type = t;
+
+   this->IPv6 = IPv6;
+
+   int family; // dominio
+   int SocketType;
+
+   // selecciono dominio entre IPv4 y IPv6
+   if(this->IPv6 == false) {
+      family = AF_INET;
+   } else {
+      family = AF_INET6;
    }
 
+   // selecion del tipo de socket
+   if(this->type == 's') {
+      SocketType = SOCK_STREAM; // TCP
+   } else {
+      SocketType = SOCK_DGRAM; // UDP
+   }
+
+   // CREO EL SOCKET
+   this->sockId = socket(family, SocketType, 0);
+
+   if ( -1 == this->sockId ) {
+      throw std::runtime_error( "VSocket::Init, (reason)" );
+   }
 }
 
 
@@ -64,12 +87,15 @@ VSocket::~VSocket() {
   *
  **/
 void VSocket::Close(){
-   int st = -1;
 
-   if ( -1 == st ) {
-      throw std::runtime_error( "VSocket::Close()" );
+   if(this->sockId != -1) {
+   
+      int st = close(this->sockId); // cierro el socket
+
+      if ( -1 == st ) {
+         throw std::runtime_error( "VSocket::Close()" );
+      }
    }
-
 }
 
 
@@ -85,12 +111,27 @@ int VSocket::TryToConnect( const char * hostip, int port ) {
 
    int st = -1;
 
+   // SOLO PARA IPv4 PORQUE NO USO EL OTRO AQUI
+   struct sockaddr_in host4;
+
+   host4.sin_family = AF_INET;
+   host4.sin_port = htons(port);
+
+   int test = inet_pton(AF_INET, hostip, &host4.sin_addr);
+   
+   if ( test <= 0 ) {
+      throw std::runtime_error( "Invalid IP address" );
+   }
+
+   memset(host4.sin_zero, 0, sizeof(host4.sin_zero));
+
+   st = connect(this->sockId, (struct sockaddr*) &host4, sizeof(host4));
+
    if ( -1 == st ) {
-      throw std::runtime_error( "VSocket::TryToConnect" );
+      throw std::runtime_error( "VSocket::TryToConnect: connection failed" );
    }
 
    return st;
-
 }
 
 
@@ -103,9 +144,38 @@ int VSocket::TryToConnect( const char * hostip, int port ) {
   *
  **/
 int VSocket::TryToConnect( const char *host, const char *service ) {
+ 
    int st = -1;
 
-   throw std::runtime_error( "VSocket::TryToConnect" );
+   struct addrinfo hints, *dirList, *adressList;
+
+   memset(&hints, 0, sizeof(hints));
+
+   hints.ai_family = AF_INET;
+   hints.ai_socktype = SOCK_STREAM;
+
+   int status = getaddrinfo(host, service, &hints, &dirList);
+
+   if(status != 0) {
+      throw std::runtime_error("getaddrinfo failed");
+   }
+
+
+   for(adressList = dirList; adressList != NULL; adressList = adressList->ai_next) {
+
+      st = connect(this->sockId, adressList->ai_addr, adressList->ai_addrlen);
+
+      if(st == 0) {
+
+         break;
+      }
+   }
+
+   freeaddrinfo(dirList);
+
+   if ( -1 == st ) {
+      throw std::runtime_error("VSocket::TryToConnect DNS");
+   }
 
    return st;
 
