@@ -19,7 +19,9 @@
 
 #include "SSLSocket.h"
 #include "Socket.h"
+#include <iostream>
 
+using namespace std;
 /**
   *  Class constructor
   *     use base class
