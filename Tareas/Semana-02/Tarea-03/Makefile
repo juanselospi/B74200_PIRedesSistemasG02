@@ -20,8 +20,8 @@ $(info $$TARGETS = $(TARGETS))
 	$(info $$^ = $^)
 	$(CXX) $^ Socket.o $(LDFLAGS) -o $^
 
-ipv6-ssl-cli.out: ipv6-ssl-cli.o VSocket.o Socket.o SSLSocket.o
-	$(CXX) ipv6-ssl-cli.o VSocket.o Socket.o SSLSocket.o $(LDFLAGS) -o $@
+tcp-cli.out: tcp-cli.o VSocket.o Socket.o SSLSocket.o
+	$(CXX) tcp-cli.o VSocket.o Socket.o SSLSocket.o $(LDFLAGS) -o $@
 
 clean:
 	@rm -f *.o *.out
