@@ -1,0 +1,65 @@
+{
+  "superblock": {
+    "block_size": 256,
+    "total_blocks": 10,
+    "free_blocks": [6, 7, 8, 9],
+    "root_directory": 0
+  },
+  "blocks": {
+    "0": {
+      "type": "directory",
+      "entries": [
+        { "name": "dragon", "inode": 1 },
+        { "name": "horse", "inode": 2 }
+      ],
+      "next": null
+    },
+
+    "1": {
+      "type": "inode",
+      "figure_name": "dragon",
+      "metadata": {
+        "total_pieces": 4,
+        "category": "fantasy"
+      },
+      "segments": [3, 4]
+    },
+
+    "2": {
+      "type": "inode",
+      "figure_name": "horse",
+      "metadata": {
+        "total_pieces": 2,
+        "category": "animal"
+      },
+      "segments": [5]
+    },
+
+    "3": {
+      "type": "segment",
+      "pieces": [
+        "1x2 rojo",
+        "2x4 azul"
+      ],
+      "next": null
+    },
+
+    "4": {
+      "type": "segment",
+      "pieces": [
+        "1x1 negro",
+        "2x2 amarillo"
+      ],
+      "next": null
+    },
+
+    "5": {
+      "type": "segment",
+      "pieces": [
+        "2x2 blanco",
+        "1x4 gris"
+      ],
+      "next": null
+    }
+  }
+}
