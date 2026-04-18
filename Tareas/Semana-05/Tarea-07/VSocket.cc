@@ -129,25 +129,48 @@ void VSocket::Close(){
  **/
 int VSocket::TryToConnect( const char * hostip, int port ) {
 
-   struct sockaddr_in server_addr;
+   int st;
 
-   memset(&server_addr, 0, sizeof(server_addr));
+   if ( this->IPv6 ) {
 
-   server_addr.sin_family = AF_INET;
-   server_addr.sin_port = htons(port);
+      struct sockaddr_in6 server_addr6;
 
-   if( inet_pton(AF_INET, hostip, &server_addr.sin_addr) <= 0 ) {
+      memset(&server_addr6, 0, sizeof(server_addr6));
 
-      throw std::runtime_error("Invalid address");
+      server_addr6.sin6_family = AF_INET6;
+      server_addr6.sin6_port = htons(port);
+
+      if( inet_pton(AF_INET6, hostip, &server_addr6.sin6_addr) <= 0 ) {
+
+         throw std::runtime_error( "Invalid IPv6 address" );
+      }
+
+      st = connect(this->sockId, (struct sockaddr *)&server_addr6, sizeof(server_addr6));
+
+   } else {
+
+      struct sockaddr_in server_addr;
+
+      memset(&server_addr, 0, sizeof(server_addr));
+
+      server_addr.sin_family = AF_INET;
+      server_addr.sin_port = htons(port);
+
+      if( inet_pton(AF_INET, hostip, &server_addr.sin_addr) <= 0 ) {
+
+         throw std::runtime_error( "Invalid IPv4 address" );
+      }
+
+      st = connect(this->sockId, (struct sockaddr *)&server_addr, sizeof(server_addr));
+
    }
 
-   int st = connect(this->sockId, (struct sockaddr *)&server_addr, sizeof(server_addr));
-
-   if( -1 == st ) {
+   if ( -1 == st ) {
       throw std::runtime_error( "VSocket::TryToConnect fail" );
    }
 
    return st;
+
 }
 
 
@@ -180,18 +203,39 @@ int VSocket::TryToConnect( const char *host, const char *service ) {
  **/
 int VSocket::Bind( int port ) {
 
-   struct sockaddr_in server_addr;
+   int st;
 
-   memset(&server_addr, 0, sizeof(server_addr));
+   if ( this->IPv6 ) {
 
-   server_addr.sin_family = AF_INET;
-   server_addr.sin_addr.s_addr = htonl(INADDR_ANY);
-   server_addr.sin_port = htons(port);
+      struct sockaddr_in6 server_addr6;
 
-   int opt = 1;
-   setsockopt(this->sockId, SOL_SOCKET, SO_REUSEADDR, &opt, sizeof(opt));
+      memset(&server_addr6, 0, sizeof(server_addr6));
 
-   int st = bind(this->sockId, (struct sockaddr *)&server_addr, sizeof(server_addr));
+      server_addr6.sin6_family = AF_INET6;
+      server_addr6.sin6_addr = in6addr_any;
+      server_addr6.sin6_port = htons(port);
+
+      int opt = 1;
+      setsockopt(this->sockId, SOL_SOCKET, SO_REUSEADDR, &opt, sizeof(opt));
+
+      st = bind(this->sockId, (struct sockaddr *)&server_addr6, sizeof(server_addr6));
+
+   } else {
+
+      struct sockaddr_in server_addr;
+
+      memset(&server_addr, 0, sizeof(server_addr));
+
+      server_addr.sin_family = AF_INET;
+      server_addr.sin_addr.s_addr = htonl(INADDR_ANY);
+      server_addr.sin_port = htons(port);
+
+      int opt = 1;
+      setsockopt(this->sockId, SOL_SOCKET, SO_REUSEADDR, &opt, sizeof(opt));
+
+      st = bind(this->sockId, (struct sockaddr *)&server_addr, sizeof(server_addr));
+
+   }
 
    if ( -1 == st ) {
       throw std::runtime_error( "VSocket::Bind fail" );

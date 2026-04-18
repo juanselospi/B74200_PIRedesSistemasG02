@@ -23,12 +23,12 @@ int main( int argc, char ** argv ) {
    VSocket * s;
    char buffer[ BUFSIZE ];
 
-   s = new Socket( 's' );     // Creaite a new stream IPv4 socket
+   s = new Socket( 's', true );     // Creaite a new stream IPv4 socket
    memset( buffer, 0, BUFSIZE );	// Zero fill buffer
 
    // s->Connect( "use your PC IP address in dot decimal format", PORT ); // Same port as server
 
-   s->Connect("127.0.0.1", PORT);
+   s->Connect("::1", PORT);
 
    if ( argc > 1 ) {
       s->Write( argv[1] );		// If provided, send first program argument to server

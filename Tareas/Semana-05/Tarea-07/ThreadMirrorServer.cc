@@ -28,17 +28,30 @@
 void task( VSocket * client ) {
    char a[ BUFSIZE ];
 
-   // client->Read( a, BUFSIZE );	// Read a string from client, data will be limited by BUFSIZE bytes
-   // std::cout << "Server received: " << a << std::endl;
-
    int n = client->Read(a, BUFSIZE);
    a[n] = '\0';
-   std::cout << "Server received: " << a << std::endl;
 
-   client->Write( a );		// Write it back to client, this is the mirror function
-   // client->Close();		// Close socket in parent
+   std::string request(a);
+   std::string response;
 
-   delete client; // hace close() automaticamente
+   if(request == "Falcon") {
+
+      response = "Millennium Falcon";
+
+   } else if(request == "XWing") {
+
+      response = "X-Wing";
+
+   } else {
+
+      response = "FIGURE_NOT_FOUND";
+   }
+
+   std::cout << "Server received: " << request << std::endl;
+
+   client->Write(response.c_str());
+
+   delete client;
 
 }
 
@@ -54,7 +67,7 @@ int main( int argc, char ** argv ) {
    std::thread * worker;
    VSocket * s1, * client;
 
-   s1 = new Socket( 's' );
+   s1 = new Socket( 's', true );
 
    s1->Bind( PORT );		// Port to access this mirror server
    s1->MarkPassive( 5 );	// Set socket passive and backlog queue to 5 connections

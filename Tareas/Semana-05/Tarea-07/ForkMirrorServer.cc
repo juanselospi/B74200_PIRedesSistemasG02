@@ -16,6 +16,7 @@
 #include <sys/types.h>
 #include <string.h>	// memset
 #include <unistd.h>
+#include <string>
 
 #include "Socket.h"
 
@@ -27,27 +28,48 @@ int main( int argc, char ** argv ) {
    int childpid;
    char a[ BUFSIZE ];
 
-   s1 = new Socket( 's' );		// Create a stream IPv4 socket
+   s1 = new Socket( 's', true );  
 
-   s1->Bind( PORT );			// Port to access this mirror server
-   s1->MarkPassive( 5 );		// Set passive socket and backlog queue to 5 connections
+   s1->Bind( PORT );       // Port to access this mirror server
+   s1->MarkPassive( 5 );      // Set passive socket and backlog queue to 5 connections
 
    for( ; ; ) {
-      s2 = s1->AcceptConnection();	// Wait for a new connection, connection info is in s2 variable
-      childpid = fork();		// Create a child to serve the request
+      s2 = s1->AcceptConnection();  // Wait for a new connection
+      childpid = fork();      // Create a child to serve the request
       if ( childpid < 0 ) {
          perror( "server: fork error" );
       } else {
-         if (0 == childpid) {		// child code
-            s1->Close();			// Close original socket "s1" in child
+         if (0 == childpid) {    // child code
+            s1->Close();      // Close original socket in child
             memset( a, 0, BUFSIZE );
-            s2->Read( a, BUFSIZE );	// Read a string from client using new conection info
-            s2->Write( a );		// Write it back to client, this is the mirror function
-            exit( 0 );			// Exit, finish child work
+
+            int n = s2->Read(a, BUFSIZE);
+            a[n] = '\0';
+
+            std::string request(a);
+            std::string response;
+
+            if(request == "Falcon") {
+
+               response = "Millennium Falcon";
+
+            } else if (request == "XWing") {
+
+               response = "X-Wing";
+
+            } else {
+
+               response = "FIGURE_NOT_FOUND";
+
+            }
+
+            s2->Write(response.c_str());
+            s2->Close();
+            exit( 0 );
          }
       }
 
-      s2->Close();			// Close socket s2 in parent, then go wait for a new conection
+      s2->Close();      // Close socket s2 in parent, then go wait for a new conection
 
    }
 
