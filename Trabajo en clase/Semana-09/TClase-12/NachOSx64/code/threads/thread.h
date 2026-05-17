@@ -40,6 +40,9 @@
 #include "copyright.h"
 #include "utility.h"
 
+// forward declaration para evitar dependencia circular
+class Semaphore;
+
 #ifdef USER_PROGRAM
 #include "machine.h"
 #include "addrspace.h"
@@ -124,6 +127,7 @@ class Thread {
     void RestoreUserState();		// restore user-level register state
 
     AddrSpace *space;			// User code this thread is running.
+    Semaphore* joinSemaphore;
 #endif
 };
 

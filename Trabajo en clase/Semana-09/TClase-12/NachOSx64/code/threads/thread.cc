@@ -40,6 +40,7 @@ Thread::Thread(const char* threadName)
     status = JUST_CREATED;
 #ifdef USER_PROGRAM
     space = NULL;
+    joinSemaphore = new Semaphore("joinSemaphore", 0);
 #endif
 }
 
@@ -58,15 +59,18 @@ Thread::Thread(const char* threadName)
 Thread::~Thread()
 {
     DEBUG('t', "Deleting thread \"%s\"\n", name);
-
     ASSERT(this != currentThread);
     if (stack != NULL)
-	DeallocBoundedArray((char *) stack, StackSize * sizeof(HostMemoryAddress));
-
+        DeallocBoundedArray((char *) stack, StackSize * sizeof(HostMemoryAddress));
 #ifdef USER_PROGRAM
-    delete this->space;
+    delete joinSemaphore;
+    if (space != NULL) {
+        space->refCount--;
+        if (space->refCount <= 0) {
+            delete this->space;
+        }
+    }
 #endif
-
 }
 
 //----------------------------------------------------------------------
@@ -155,7 +159,9 @@ Thread::Finish ()
     ASSERT(this == currentThread);
     
     DEBUG('t', "Finishing thread \"%s\"\n", getName());
-    
+#ifdef USER_PROGRAM
+    joinSemaphore->V();
+#endif
     threadToBeDestroyed = currentThread;
     Sleep();					// invokes SWITCH
     // not reached

@@ -20,6 +20,8 @@
 #include "addrspace.h"
 #include "noff.h"
 
+#define min(a,b) ((a) < (b) ? (a) : (b))
+
 //----------------------------------------------------------------------
 // SwapHeader
 // 	Do little endian to big endian conversion on the bytes in the 
@@ -64,8 +66,8 @@ AddrSpace::AddrSpace(OpenFile *executable)
 
     executable->ReadAt((char *)&noffH, sizeof(noffH), 0);
     if ((noffH.noffMagic != NOFFMAGIC) && 
-		(WordToHost(noffH.noffMagic) == NOFFMAGIC))
-    	SwapHeader(&noffH);
+        (WordToHost(noffH.noffMagic) == NOFFMAGIC))
+        SwapHeader(&noffH);
     ASSERT(noffH.noffMagic == NOFFMAGIC);
 
 // how big is address space?
@@ -79,40 +81,58 @@ AddrSpace::AddrSpace(OpenFile *executable)
 						// to run anything too big --
 						// at least until we have
 						// virtual memory
+    ASSERT(numPages <= (unsigned int) machine->memoryMap->NumClear());
 
-    DEBUG('a', "Initializing address space, num pages %d, size %d\n", 
-					numPages, size);
+    refCount = 1;
+
+    for (int j = 0; j < MAX_OPEN_FILES; j++) {
+        openFiles[j] = NULL;
+    }
+
+    DEBUG('a', "Initializing address space, num pages %d, size %d\n", numPages, size);
+
 // first, set up the translation 
     this->pageTable = new TranslationEntry[numPages];
     for (i = 0; i < numPages; i++) {
-	pageTable[i].virtualPage = i;	// for now, virtual page # = phys page #
-	pageTable[i].physicalPage = i;
-	pageTable[i].valid = true;
-	pageTable[i].use = false;
-	pageTable[i].dirty = false;
-	pageTable[i].readOnly = false;  // if the code segment was entirely on 
-					// a separate page, we could set its 
-					// pages to be read-only
-    }
-    
-// zero out the entire address space, to zero the unitialized data segment 
-// and the stack segment
-    bzero(machine->mainMemory, size);
+        pageTable[i].virtualPage = i;
+        pageTable[i].physicalPage = machine->memoryMap->Find();
+        pageTable[i].valid = true;
+        pageTable[i].use = false;
+        pageTable[i].dirty = false;
+        pageTable[i].readOnly = false;
 
-// then, copy in the code and data segments into memory
+        bzero(&machine->mainMemory[pageTable[i].physicalPage * PageSize], PageSize);
+    }
+
+// cargar segmento del codigo
     if (noffH.code.size > 0) {
-        DEBUG('a', "Initializing code segment, at 0x%x, size %d\n", 
-			noffH.code.virtualAddr, noffH.code.size);
-        executable->ReadAt(&(machine->mainMemory[noffH.code.virtualAddr]),
-			noffH.code.size, noffH.code.inFileAddr);
-    }
-    if (noffH.initData.size > 0) {
-        DEBUG('a', "Initializing data segment, at 0x%x, size %d\n", 
-			noffH.initData.virtualAddr, noffH.initData.size);
-        executable->ReadAt(&(machine->mainMemory[noffH.initData.virtualAddr]),
-			noffH.initData.size, noffH.initData.inFileAddr);
+        DEBUG('a', "Initializing code segment, at 0x%x, size %d\n",
+                noffH.code.virtualAddr, noffH.code.size);
+        int numCodePages = divRoundUp(noffH.code.size, PageSize);
+        for (int p = 0; p < numCodePages; p++) {
+            int virtPage = (noffH.code.virtualAddr / PageSize) + p;
+            int physAddr = pageTable[virtPage].physicalPage * PageSize;
+            int fileAddr = noffH.code.inFileAddr + p * PageSize;
+            int bytesToRead = min(PageSize, (int)noffH.code.size - p * PageSize);
+            executable->ReadAt(&(machine->mainMemory[physAddr]), bytesToRead, fileAddr);
+        }
     }
 
+// cargar segmento de los datos
+    if (noffH.initData.size > 0) {
+        DEBUG('a', "Initializing data segment, at 0x%x, size %d\n",
+                noffH.initData.virtualAddr, noffH.initData.size);
+        int numDataPages = divRoundUp(noffH.initData.size, PageSize);
+        for (int p = 0; p < numDataPages; p++) {
+            int virtAddr = noffH.initData.virtualAddr + p * PageSize;
+            int virtPage = virtAddr / PageSize;
+            int pageOffset = noffH.initData.virtualAddr % PageSize;
+            int physAddr = pageTable[virtPage].physicalPage * PageSize + pageOffset;
+            int fileAddr = noffH.initData.inFileAddr + p * PageSize;
+            int bytesToRead = min(PageSize - pageOffset, (int)noffH.initData.size - p * PageSize);
+            executable->ReadAt(&(machine->mainMemory[physAddr]), bytesToRead, fileAddr);
+        }
+    }
 }
 
 //----------------------------------------------------------------------
@@ -122,7 +142,12 @@ AddrSpace::AddrSpace(OpenFile *executable)
 
 AddrSpace::~AddrSpace()
 {
-   delete [] this->pageTable;
+    if (refCount <= 0) {
+        for (unsigned int i = 0; i < numPages; i++) {
+            machine->memoryMap->Clear(pageTable[i].physicalPage);
+        }
+    }
+    delete [] this->pageTable;
 }
 
 //----------------------------------------------------------------------
@@ -180,4 +205,34 @@ void AddrSpace::RestoreState()
 {
     machine->pageTable = pageTable;
     machine->pageTableSize = numPages;
+}
+
+int AddrSpace::newStack() {
+    
+    unsigned int newPages = divRoundUp(UserStackSize, PageSize);
+    
+    ASSERT(numPages + newPages <= NumPhysPages);
+    ASSERT((unsigned int)(numPages + newPages) <= 
+           (unsigned int)(numPages + machine->memoryMap->NumClear()));
+
+    // extender la tabla de páginas
+    TranslationEntry* newTable = new TranslationEntry[numPages + newPages];
+    for (unsigned int i = 0; i < numPages; i++) {
+        newTable[i] = pageTable[i];
+    }
+    for (unsigned int i = numPages; i < numPages + newPages; i++) {
+        newTable[i].virtualPage = i;
+        newTable[i].physicalPage = machine->memoryMap->Find();
+        newTable[i].valid = true;
+        newTable[i].use = false;
+        newTable[i].dirty = false;
+        newTable[i].readOnly = false;
+        bzero(&machine->mainMemory[newTable[i].physicalPage * PageSize], PageSize);
+    }
+
+    delete[] pageTable;
+    pageTable = newTable;
+    numPages += newPages;
+
+    return numPages * PageSize - 16;
 }

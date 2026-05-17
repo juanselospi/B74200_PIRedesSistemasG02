@@ -72,6 +72,7 @@ Machine::Machine(bool debug)
 #endif
 
     singleStep = debug;
+    memoryMap = new BitMap(NumPhysPages);
     CheckEndian();
 }
 
@@ -85,6 +86,7 @@ Machine::~Machine()
     delete [] mainMemory;
     if (tlb != NULL)
         delete [] tlb;
+    delete memoryMap;
 }
 
 //----------------------------------------------------------------------
@@ -211,4 +213,3 @@ void Machine::WriteRegister(int num, int value)
 	// DEBUG('m', "WriteRegister %d, value %d\n", num, value);
 	registers[num] = value;
     }
-

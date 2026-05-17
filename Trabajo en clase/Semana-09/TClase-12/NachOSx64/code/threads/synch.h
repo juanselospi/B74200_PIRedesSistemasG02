@@ -81,12 +81,9 @@ class Lock {
 
   private:
     char* name;				// for debugging
+    Semaphore* semaphore;
+    Thread* holder;
     // plus some other stuff you'll need to define
-
-    Semaphore *sem;
-
-    Thread *owner;
-
 };
 
 // The following class defines a "condition variable".  A condition
@@ -138,9 +135,8 @@ class Condition {
 
   private:
     char* name;
+    List<Thread*>* queue;
     // plus some other stuff you'll need to define
-
-    List<Semaphore*> *waitQueue;
 };
 
 
@@ -154,10 +150,7 @@ class Mutex {
       void Unlock();
    private:
       char * name;
-      // plus some other stuff you'll need to define
-
-      Semaphore *sem;
-
+      Semaphore* semaphore; 
 };
 
 
@@ -169,17 +162,10 @@ class Barrier {
       ~Barrier();
       void Wait();
    private:
-      char * name;
-      // plus some other stuff you'll need to define
-
-      int count;
-
-      int waiting;
-
-      Lock *lock;
-
-      Condition *cond;
-      
+      char* name;
+      int count;            // cuántos hilos deben llegar
+      int waiting;          // cuántos han llegado
+      Semaphore* semaphore;
 };
 
 #endif // SYNCH_H

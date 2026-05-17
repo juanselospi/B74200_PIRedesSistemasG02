@@ -25,6 +25,7 @@
 #include "utility.h"
 #include "translate.h"
 #include "disk.h"
+#include "bitmap.h"
 
 // Definitions related to the size, and format of user memory
 
@@ -32,7 +33,7 @@ const int PageSize = SectorSize; 	// set the page size equal to
 					// the disk sector size, for
 					// simplicity
 
-const int NumPhysPages = 32;
+const int NumPhysPages = 128;
 const int MemorySize = NumPhysPages * PageSize;
 const int TLBSize = 4;			// if there is a TLB, make it small
 
@@ -182,6 +183,7 @@ class Machine {
 
     TranslationEntry *pageTable;
     unsigned int pageTableSize;
+	BitMap* memoryMap;  // mapa de páginas físicas libres/ocupadas
 
   private:
     bool singleStep;		// drop back into the debugger after each

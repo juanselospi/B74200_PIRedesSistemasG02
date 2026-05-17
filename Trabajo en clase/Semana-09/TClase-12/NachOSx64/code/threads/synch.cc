@@ -123,134 +123,113 @@ Semaphore::Destroy()
 // Note -- without a correct implementation of Condition::Wait(), 
 // the test case in the network assignment won't work!
 Lock::Lock(const char* debugName) {
-
     name = (char*)debugName;
-
-    sem = new Semaphore( "lock sem", 1 );
-
-    owner = NULL;
-
+    semaphore = new Semaphore("lock", 1);
+    holder = NULL;
 }
-
 
 Lock::~Lock() {
-
-    delete sem;
+    delete semaphore;
 }
-
 
 void Lock::Acquire() {
-
-    sem->P(); // si esta oupado espero
-
-    owner = currentThread; // me trasfiero el ownership
+    IntStatus oldLevel = interrupt->SetLevel(IntOff);
+    semaphore->P();
+    holder = currentThread;
+    interrupt->SetLevel(oldLevel);
 }
-
 
 void Lock::Release() {
-
-    if(!isHeldByCurrentThread()) {
-
-        return;
-    }
-
-    owner = NULL; // sin due;o
-
-    sem->V(); // liberado
+    IntStatus oldLevel = interrupt->SetLevel(IntOff);
+    ASSERT(isHeldByCurrentThread());
+    holder = NULL;
+    semaphore->V();
+    interrupt->SetLevel(oldLevel);
 }
 
-
-// bool Lock::isHeldByCurrentThread() {
-//    return false;
-// }
-
 bool Lock::isHeldByCurrentThread() {
-
-    return owner == currentThread; // y mis palillos quien los tiene?
+    return holder == currentThread;
 }
 
 
 Condition::Condition(const char* debugName) {
-
     name = (char*)debugName;
-
-    waitQueue = new List<Semaphore*>;
+    queue = new List<Thread*>();
 }
 
 Condition::~Condition() {
-
-    delete waitQueue;
+    delete queue;
 }
 
-
-void Condition::Wait(Lock *conditionLock) {
-
-    Semaphore *sem = new Semaphore( "cond sem", 0 );
-
-    waitQueue->Append(sem);
-
-    conditionLock->Release(); // suelto el lock antes de dormir
-
-    sem->P(); // duerme
-    
-    conditionLock->Acquire(); // lo agarra de nuevo al despertar
-
-    delete sem;
+void Condition::Wait(Lock* conditionLock) {
+    ASSERT(conditionLock->isHeldByCurrentThread());
+    IntStatus oldLevel = interrupt->SetLevel(IntOff);
+    conditionLock->Release();
+    queue->Append(currentThread);
+    currentThread->Sleep();
+    conditionLock->Acquire();
+    interrupt->SetLevel(oldLevel);
 }
 
-
-void Condition::Signal(Lock *conditionLock) {
-
-    if(!waitQueue->IsEmpty()) {
-
-        Semaphore *sem = waitQueue->Remove();
-
-        sem->V(); // despierto SOLO uno
-    }
+void Condition::Signal(Lock* conditionLock) {
+    ASSERT(conditionLock->isHeldByCurrentThread());
+    IntStatus oldLevel = interrupt->SetLevel(IntOff);
+    Thread* t = queue->Remove();
+    if (t != NULL)
+        scheduler->ReadyToRun(t);
+    interrupt->SetLevel(oldLevel);
 }
 
-
-
-void Condition::Broadcast(Lock *conditionLock) {
-
-    // PROBANDO SI SIRVE
-    while(!waitQueue->IsEmpty()) {
-
-        Semaphore *sem = waitQueue->Remove();
-
-        // cout << "estoy dentro";
-        sem->V();
-    }
-
-    
+void Condition::Broadcast(Lock* conditionLock) {
+    ASSERT(conditionLock->isHeldByCurrentThread());
+    IntStatus oldLevel = interrupt->SetLevel(IntOff);
+    Thread* t;
+    while ((t = queue->Remove()) != NULL)
+        scheduler->ReadyToRun(t);
+    interrupt->SetLevel(oldLevel);
 }
 
 
 // Mutex class
 Mutex::Mutex( const char * debugName ) {
-
+    name = (char*) debugName;
+    semaphore = new Semaphore( "mutex", 1 );  // inicia en 1
 }
 
 Mutex::~Mutex() {
-
+    delete semaphore;
 }
 
 void Mutex::Lock() {
-
+    semaphore->P();  // adquirir
 }
 
 void Mutex::Unlock() {
-
+    semaphore->V();  // liberar
 }
 
 
 // Barrier class
-Barrier::Barrier( const char * debugName, int count ) {
+Barrier::Barrier( const char * debugName, int numThreads ) {
+    name = (char*) debugName;
+    this->count = numThreads;
+    waiting = 0;
+    semaphore = new Semaphore( "barrier", 0 );
 }
 
 Barrier::~Barrier() {
+    delete semaphore;
 }
 
 void Barrier::Wait() {
+    IntStatus oldLevel = interrupt->SetLevel(IntOff);
+    waiting++;
+    if ( waiting == count ) {
+        // todos llegaron, despertar a todos
+        for ( int i = 0; i < count; i++ )
+            semaphore->V();
+        waiting = 0;
+    }
+    interrupt->SetLevel(oldLevel);
+    semaphore->P();  // esperar hasta que todos lleguen
 }
-

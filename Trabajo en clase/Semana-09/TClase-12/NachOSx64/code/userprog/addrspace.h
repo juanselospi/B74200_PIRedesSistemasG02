@@ -17,6 +17,7 @@
 #include "filesys.h"
 
 #define UserStackSize		1024 	// increase this as necessary!
+#define MAX_OPEN_FILES 128
 
 class AddrSpace {
   public:
@@ -30,6 +31,13 @@ class AddrSpace {
 
     void SaveState();			// Save/restore address space-specific
     void RestoreState();		// info on a context switch 
+    unsigned int getNumPages() { return numPages; }
+
+    int newStack();
+
+    OpenFile* openFiles[MAX_OPEN_FILES];
+
+    int refCount;
 
   private:
     TranslationEntry *pageTable;	// Assume linear page table translation
