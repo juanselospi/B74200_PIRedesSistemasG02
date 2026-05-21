@@ -122,12 +122,17 @@ Initialize(int argc, char **argv)
 	}
 	// 2007, Jose Miguel Santos Espino
 	else if (!strcmp(*argv, "-p")) {
-	    preemptiveScheduling = true;
 	    if (argc == 1) {
+	        preemptiveScheduling = true;
 	        timeSlice = DEFAULT_TIME_SLICE;
 	    } else {
-	        timeSlice = atoi(*(argv+1));
-	        argCount = 2;
+	        char *end;
+	        long long slice = strtoll(*(argv + 1), &end, 10);
+	        if (*end == '\0' && end != *(argv + 1)) {
+	            preemptiveScheduling = true;
+	            timeSlice = slice;
+	            argCount = 2;
+	        }
 	    }
 	}
 #ifdef USER_PROGRAM
