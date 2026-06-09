@@ -1,0 +1,12 @@
+[DISCOVERY-INTERM] [09/06/2026 17:35] [ANNOUNCE] Intermediario registrado en directorio global
+[DISCOVERY-INTERM] [09/06/2026 17:35] [DISCOVER] Servidor no encontrado, reintentando...
+[DISCOVERY-SERV] [09/06/2026 17:35] [ANNOUNCE] Servidor registrado en directorio global
+[DISCOVERY-SERV] [09/06/2026 17:35] [DISCOVER] Intermediario encontrado: intermediario-1
+[DISCOVERY-INTERM] [09/06/2026 17:35] [DISCOVER] Servidor encontrado: servidor-figuras
+[DISCOVERY-SERV] [09/06/2026 17:35] [ACK_DISCOVER] Enlace confirmado con: intermediario-1
+[CLIENTE] [09/06/2026 17:35] [SOLICITUD] LIST_FIGURES
+[INTERM] [09/06/2026 17:35] [SOLICITUD] ASK_FIGURE figura=ALL
+[INTERM] [09/06/2026 17:35] [ENRUTAMIENTO] Enviando solicitud a servidor
+[SERVIDOR] [09/06/2026 17:35] [RESPUESTA] FIGURE_FOUND figura=ALL
+[INTERM] [09/06/2026 17:35] [RESPUESTA] FIGURES_LIST
+[CLIENTE] [09/06/2026 17:35] [RESPUESTA] FIGURES_LIST
