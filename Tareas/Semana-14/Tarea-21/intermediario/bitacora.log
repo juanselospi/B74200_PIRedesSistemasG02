@@ -1,0 +1,714 @@
+[INTERMEDIARY] [20/06/2026 23:16] [START] bindIp=0.0.0.0 clientPort=8081 figureServer=auto:8080
+[INTERMEDIARY] [20/06/2026 23:16] [SEED_PEER] Intermediario remoto sembrado: 127.0.0.1:2026
+[INTERMEDIARY] [20/06/2026 23:16] [LISTEN] UDP JOIN en puerto 3030
+[INTERMEDIARY] [20/06/2026 23:16] [BROADCAST] Iniciando broadcast JOIN periodico
+[INTERMEDIARY] [20/06/2026 23:16] [ERROR] sendProtoMessage error: VSocket::TryToConnect connect IPv4: Connection refused
+[INTERMEDIARY] [20/06/2026 23:16] [PEER_ANNOUNCE] Anunciando 'INTER_HERE 8081' a 255.255.255.255:2027
+[INTERMEDIARY] [20/06/2026 23:16] [PEER_DISCOVERY] Modo local (semilla): no se ocupa UDP 2027; salida por semilla, entrada por unicast.
+[INTERMEDIARY] [20/06/2026 23:16] [ERROR] sendProtoMessage error: VSocket::TryToConnect connect IPv4: Connection refused
+[INTERMEDIARY] [20/06/2026 23:16] [LISTEN] TCP PEER en puerto 3031
+[INTERMEDIARY] [20/06/2026 23:16] [LISTEN] Clientes en 0.0.0.0:8081
+[INTERMEDIARY] [20/06/2026 23:16] [SERVER_DISCOVERY] Buscando mi servidor por UDP 8090 (broadcast 255.255.255.255)...
+[INTERMEDIARY] [20/06/2026 23:16] [SERVER_DISCOVERY] Servidor encontrado: 192.168.1.10:8080
+[INTERMEDIARY] [20/06/2026 23:16] [ROUTE_TABLE] Construyendo tabla de rutas local desde 192.168.1.10:8080
+[INTERMEDIARY] [20/06/2026 23:16] [ROUTE_TABLE] Figuras locales registradas: 7 (total en tabla: 7)
+[INTERMEDIARY] [20/06/2026 23:16] [ROUTE] figura=death_star_ii ip=192.168.1.10 puerto=8080
+[INTERMEDIARY] [20/06/2026 23:16] [ROUTE] figura=dragon ip=192.168.1.10 puerto=8080
+[INTERMEDIARY] [20/06/2026 23:16] [ROUTE] figura=fish ip=192.168.1.10 puerto=8080
+[INTERMEDIARY] [20/06/2026 23:16] [ROUTE] figura=giraffe ip=192.168.1.10 puerto=8080
+[INTERMEDIARY] [20/06/2026 23:16] [ROUTE] figura=horse ip=192.168.1.10 puerto=8080
+[INTERMEDIARY] [20/06/2026 23:16] [ROUTE] figura=imperial_destroyer ip=192.168.1.10 puerto=8080
+[INTERMEDIARY] [20/06/2026 23:16] [ROUTE] figura=millennium_falcon ip=192.168.1.10 puerto=8080
+[INTERMEDIARY] [20/06/2026 23:16] [ERROR] sendProtoMessage error: VSocket::TryToConnect connect IPv4: Connection refused
+[INTERMEDIARY] [20/06/2026 23:16] [CLIENT_REQUEST] GET /lego/index.php HTTP/1.1
+[INTERMEDIARY] [20/06/2026 23:16] [HANDLE_INDEX] Figuras disponibles: 7
+[INTERMEDIARY] [20/06/2026 23:16] [CLIENT_REQUEST] GET /lego/index.php HTTP/1.1
+[INTERMEDIARY] [20/06/2026 23:16] [HANDLE_INDEX] Figuras disponibles: 7
+[INTERMEDIARY] [20/06/2026 23:16] [CLIENT_REQUEST] GET /lego/list.php?figure=caballo&part=1 HTTP/1.1
+[INTERMEDIARY] [20/06/2026 23:16] [HANDLE_LIST] figure=caballo part=1
+[INTERMEDIARY] [20/06/2026 23:16] [REMOTE_FALLBACK] Probando figura=caballo en 127.0.0.1:2026
+[INTERMEDIARY] [20/06/2026 23:16] [REMOTE_REQUEST] GET /figura/caballo/1 -> 127.0.0.1:2026
+[INTERMEDIARY] [20/06/2026 23:16] [ERROR] sendProtoMessage error: VSocket::TryToConnect connect IPv4: Connection refused
+[INTERMEDIARY] [20/06/2026 23:16] [FIGURE_NOT_FOUND] figure=caballo part=1
+[INTERMEDIARY] [20/06/2026 23:16] [ERROR] sendProtoMessage error: VSocket::TryToConnect connect IPv4: Connection refused
+[INTERMEDIARY] [20/06/2026 23:16] [ERROR] sendProtoMessage error: VSocket::TryToConnect connect IPv4: Connection refused
+[INTERMEDIARY] [20/06/2026 23:16] [HTTP_PEER_MERGED] 127.0.0.1:2026 figuras_nuevas=3
+[INTERMEDIARY] [20/06/2026 23:16] [CLIENT_REQUEST] GET /lego/index.php HTTP/1.1
+[INTERMEDIARY] [20/06/2026 23:16] [HANDLE_INDEX] Figuras disponibles: 10
+[INTERMEDIARY] [20/06/2026 23:16] [CLIENT_REQUEST] GET /lego/list.php?figure=caballo&part=1 HTTP/1.1
+[INTERMEDIARY] [20/06/2026 23:16] [HANDLE_LIST] figure=caballo part=1
+[INTERMEDIARY] [20/06/2026 23:16] [REMOTE_REQUEST] GET /figura/caballo/1 -> 127.0.0.1:2026
+[INTERMEDIARY] [20/06/2026 23:16] [FIGURE_FOUND] figure=caballo part=1
+[INTERMEDIARY] [20/06/2026 23:18] [START] bindIp=0.0.0.0 clientPort=8081 figureServer=auto:8080
+[INTERMEDIARY] [20/06/2026 23:18] [SEED_PEER] Intermediario remoto sembrado: 127.0.0.1:2026
+[INTERMEDIARY] [20/06/2026 23:18] [LISTEN] UDP JOIN en puerto 3030
+[INTERMEDIARY] [20/06/2026 23:18] [BROADCAST] Iniciando broadcast JOIN periodico
+[INTERMEDIARY] [20/06/2026 23:18] [LISTEN] Clientes en 0.0.0.0:8081
+[INTERMEDIARY] [20/06/2026 23:18] [PEER_ANNOUNCE] Anunciando 'INTER_HERE 8081' a 255.255.255.255:2027
+[INTERMEDIARY] [20/06/2026 23:18] [PEER_DISCOVERY] Modo local (semilla): no se ocupa UDP 2027; salida por semilla, entrada por unicast.
+[INTERMEDIARY] [20/06/2026 23:18] [LISTEN] TCP PEER en puerto 3031
+[INTERMEDIARY] [20/06/2026 23:18] [SERVER_DISCOVERY] Buscando mi servidor por UDP 8090 (broadcast 255.255.255.255)...
+[INTERMEDIARY] [20/06/2026 23:18] [SERVER_DISCOVERY] Servidor encontrado: 192.168.1.10:8080
+[INTERMEDIARY] [20/06/2026 23:18] [ROUTE_TABLE] Construyendo tabla de rutas local desde 192.168.1.10:8080
+[INTERMEDIARY] [20/06/2026 23:18] [ROUTE_TABLE] Figuras locales registradas: 7 (total en tabla: 7)
+[INTERMEDIARY] [20/06/2026 23:18] [ROUTE] figura=death_star_ii ip=192.168.1.10 puerto=8080
+[INTERMEDIARY] [20/06/2026 23:18] [ROUTE] figura=dragon ip=192.168.1.10 puerto=8080
+[INTERMEDIARY] [20/06/2026 23:18] [ROUTE] figura=fish ip=192.168.1.10 puerto=8080
+[INTERMEDIARY] [20/06/2026 23:18] [ROUTE] figura=giraffe ip=192.168.1.10 puerto=8080
+[INTERMEDIARY] [20/06/2026 23:18] [ROUTE] figura=horse ip=192.168.1.10 puerto=8080
+[INTERMEDIARY] [20/06/2026 23:18] [ROUTE] figura=imperial_destroyer ip=192.168.1.10 puerto=8080
+[INTERMEDIARY] [20/06/2026 23:18] [ROUTE] figura=millennium_falcon ip=192.168.1.10 puerto=8080
+[INTERMEDIARY] [20/06/2026 23:18] [CLIENT_REQUEST] GET /lego/index.php HTTP/1.1
+[INTERMEDIARY] [20/06/2026 23:18] [HANDLE_INDEX] Figuras disponibles: 7
+[INTERMEDIARY] [20/06/2026 23:21] [START] bindIp=0.0.0.0 clientPort=8081 figureServer=auto:8080
+[INTERMEDIARY] [20/06/2026 23:21] [SEED_PEER] Intermediario remoto sembrado: 127.0.0.1:2026
+[INTERMEDIARY] [20/06/2026 23:21] [LISTEN] UDP JOIN en puerto 3030
+[INTERMEDIARY] [20/06/2026 23:21] [PEER_ANNOUNCE] Anunciando 'INTER_HERE 8081' a 255.255.255.255:2027
+[INTERMEDIARY] [20/06/2026 23:21] [LISTEN] Clientes en 0.0.0.0:8081
+[INTERMEDIARY] [20/06/2026 23:21] [PEER_DISCOVERY] Modo local (semilla): no se ocupa UDP 2027; salida por semilla, entrada por unicast.
+[INTERMEDIARY] [20/06/2026 23:21] [BROADCAST] Iniciando broadcast JOIN periodico
+[INTERMEDIARY] [20/06/2026 23:21] [LISTEN] TCP PEER en puerto 3031
+[INTERMEDIARY] [20/06/2026 23:21] [HTTP_PEER_MERGED] 127.0.0.1:2026 figuras_nuevas=3
+[INTERMEDIARY] [20/06/2026 23:21] [SERVER_DISCOVERY] Buscando mi servidor por UDP 8090 (broadcast 255.255.255.255)...
+[INTERMEDIARY] [20/06/2026 23:21] [HTTP_PEER_MERGED] 127.0.0.1:2026 figuras_nuevas=0
+[INTERMEDIARY] [20/06/2026 23:21] [SERVER_DISCOVERY] Servidor encontrado: 192.168.1.10:8080
+[INTERMEDIARY] [20/06/2026 23:21] [ROUTE_TABLE] Construyendo tabla de rutas local desde 192.168.1.10:8080
+[INTERMEDIARY] [20/06/2026 23:21] [ROUTE_TABLE] Figuras locales registradas: 7 (total en tabla: 10)
+[INTERMEDIARY] [20/06/2026 23:21] [ROUTE] figura=caballo ip=127.0.0.1 puerto=2026
+[INTERMEDIARY] [20/06/2026 23:21] [ROUTE] figura=death_star_ii ip=192.168.1.10 puerto=8080
+[INTERMEDIARY] [20/06/2026 23:21] [ROUTE] figura=dragon ip=192.168.1.10 puerto=8080
+[INTERMEDIARY] [20/06/2026 23:21] [ROUTE] figura=fish ip=192.168.1.10 puerto=8080
+[INTERMEDIARY] [20/06/2026 23:21] [ROUTE] figura=furro ip=127.0.0.1 puerto=2026
+[INTERMEDIARY] [20/06/2026 23:21] [ROUTE] figura=giraffe ip=192.168.1.10 puerto=8080
+[INTERMEDIARY] [20/06/2026 23:21] [ROUTE] figura=horse ip=192.168.1.10 puerto=8080
+[INTERMEDIARY] [20/06/2026 23:21] [ROUTE] figura=imperial_destroyer ip=192.168.1.10 puerto=8080
+[INTERMEDIARY] [20/06/2026 23:21] [ROUTE] figura=millennium_falcon ip=192.168.1.10 puerto=8080
+[INTERMEDIARY] [20/06/2026 23:21] [ROUTE] figura=tortuga ip=127.0.0.1 puerto=2026
+[INTERMEDIARY] [20/06/2026 23:21] [CLIENT_REQUEST] GET /lego/index.php HTTP/1.1
+[INTERMEDIARY] [20/06/2026 23:21] [HANDLE_INDEX] Figuras disponibles: 10
+[INTERMEDIARY] [20/06/2026 23:21] [CLIENT_REQUEST] GET /lego/index.php HTTP/1.1
+[INTERMEDIARY] [20/06/2026 23:21] [HANDLE_INDEX] Figuras disponibles: 10
+[INTERMEDIARY] [20/06/2026 23:21] [CLIENT_REQUEST] GET /lego/index.php HTTP/1.1
+[INTERMEDIARY] [20/06/2026 23:21] [HANDLE_INDEX] Figuras disponibles: 10
+[INTERMEDIARY] [20/06/2026 23:24] [START] bindIp=0.0.0.0 clientPort=8081 figureServer=auto:8080
+[INTERMEDIARY] [20/06/2026 23:24] [SEED_PEER] Intermediario remoto sembrado: 127.0.0.1:2026
+[INTERMEDIARY] [20/06/2026 23:24] [LISTEN] UDP JOIN en puerto 3030
+[INTERMEDIARY] [20/06/2026 23:24] [BROADCAST] Iniciando broadcast JOIN periodico
+[INTERMEDIARY] [20/06/2026 23:24] [LISTEN] TCP PEER en puerto 3031
+[INTERMEDIARY] [20/06/2026 23:24] [LISTEN] Clientes en 0.0.0.0:8081
+[INTERMEDIARY] [20/06/2026 23:24] [PEER_ANNOUNCE] Anunciando 'INTER_HERE 8081' a 255.255.255.255:2027
+[INTERMEDIARY] [20/06/2026 23:24] [PEER_DISCOVERY] Modo local (semilla): no se ocupa UDP 2027; salida por semilla, entrada por unicast.
+[INTERMEDIARY] [20/06/2026 23:24] [SERVER_DISCOVERY] Buscando mi servidor por UDP 8090 (broadcast 255.255.255.255)...
+[INTERMEDIARY] [20/06/2026 23:24] [SERVER_DISCOVERY] Servidor encontrado: 192.168.1.10:8080
+[INTERMEDIARY] [20/06/2026 23:24] [ROUTE_TABLE] Construyendo tabla de rutas local desde 192.168.1.10:8080
+[INTERMEDIARY] [20/06/2026 23:24] [ROUTE_TABLE] Figuras locales registradas: 7 (total en tabla: 7)
+[INTERMEDIARY] [20/06/2026 23:24] [ROUTE] figura=death_star_ii ip=192.168.1.10 puerto=8080
+[INTERMEDIARY] [20/06/2026 23:24] [ROUTE] figura=dragon ip=192.168.1.10 puerto=8080
+[INTERMEDIARY] [20/06/2026 23:24] [ROUTE] figura=fish ip=192.168.1.10 puerto=8080
+[INTERMEDIARY] [20/06/2026 23:24] [ROUTE] figura=giraffe ip=192.168.1.10 puerto=8080
+[INTERMEDIARY] [20/06/2026 23:24] [ROUTE] figura=horse ip=192.168.1.10 puerto=8080
+[INTERMEDIARY] [20/06/2026 23:24] [ROUTE] figura=imperial_destroyer ip=192.168.1.10 puerto=8080
+[INTERMEDIARY] [20/06/2026 23:24] [ROUTE] figura=millennium_falcon ip=192.168.1.10 puerto=8080
+[INTERMEDIARY] [20/06/2026 23:24] [CLIENT_REQUEST] GET /lego/index.php HTTP/1.1
+[INTERMEDIARY] [20/06/2026 23:24] [HANDLE_INDEX] Figuras disponibles: 7
+[INTERMEDIARY] [20/06/2026 23:24] [CLIENT_REQUEST] GET /lego/list.php?figure=horse&part=1 HTTP/1.1
+[INTERMEDIARY] [20/06/2026 23:24] [HANDLE_LIST] figure=horse part=1
+[INTERMEDIARY] [20/06/2026 23:24] [PROTO_REQUEST] Enviando: P/G/horse:1 -> 192.168.1.10:8080
+[INTERMEDIARY] [20/06/2026 23:24] [FIGURE_FOUND] figure=horse part=1
+[INTERMEDIARY] [20/06/2026 23:24] [CLIENT_REQUEST] GET /lego/index.php HTTP/1.1
+[INTERMEDIARY] [20/06/2026 23:24] [HANDLE_INDEX] Figuras disponibles: 7
+[INTERMEDIARY] [20/06/2026 23:24] [CLIENT_REQUEST] GET /lego/list.php?figure=pez&part=1 HTTP/1.1
+[INTERMEDIARY] [20/06/2026 23:24] [HANDLE_LIST] figure=pez part=1
+[INTERMEDIARY] [20/06/2026 23:24] [REMOTE_FALLBACK] Probando figura=pez en 127.0.0.1:2026
+[INTERMEDIARY] [20/06/2026 23:24] [REMOTE_REQUEST] GET /figura/pez/1 -> 127.0.0.1:2026
+[INTERMEDIARY] [20/06/2026 23:24] [REMOTE_MISS] figura=pez status=404
+[INTERMEDIARY] [20/06/2026 23:24] [FIGURE_NOT_FOUND] figure=pez part=1
+[INTERMEDIARY] [20/06/2026 23:25] [START] bindIp=0.0.0.0 clientPort=8081 figureServer=auto:8080
+[INTERMEDIARY] [20/06/2026 23:25] [SEED_PEER] Intermediario remoto sembrado: 127.0.0.1:2026
+[INTERMEDIARY] [20/06/2026 23:25] [LISTEN] UDP JOIN en puerto 3030
+[INTERMEDIARY] [20/06/2026 23:25] [BROADCAST] Iniciando broadcast JOIN periodico
+[INTERMEDIARY] [20/06/2026 23:25] [LISTEN] TCP PEER en puerto 3031
+[INTERMEDIARY] [20/06/2026 23:25] [LISTEN] Clientes en 0.0.0.0:8081
+[INTERMEDIARY] [20/06/2026 23:25] [PEER_DISCOVERY] Modo local (semilla): no se ocupa UDP 2027; salida por semilla, entrada por unicast.
+[INTERMEDIARY] [20/06/2026 23:25] [PEER_ANNOUNCE] Anunciando 'INTER_HERE 8081' a 255.255.255.255:2027
+[INTERMEDIARY] [20/06/2026 23:25] [SERVER_DISCOVERY] Buscando mi servidor por UDP 8090 (broadcast 255.255.255.255)...
+[INTERMEDIARY] [20/06/2026 23:25] [SERVER_DISCOVERY] Servidor encontrado: 192.168.1.10:8080
+[INTERMEDIARY] [20/06/2026 23:25] [ROUTE_TABLE] Construyendo tabla de rutas local desde 192.168.1.10:8080
+[INTERMEDIARY] [20/06/2026 23:25] [ROUTE_TABLE] Figuras locales registradas: 7 (total en tabla: 7)
+[INTERMEDIARY] [20/06/2026 23:25] [ROUTE] figura=death_star_ii ip=192.168.1.10 puerto=8080
+[INTERMEDIARY] [20/06/2026 23:25] [ROUTE] figura=dragon ip=192.168.1.10 puerto=8080
+[INTERMEDIARY] [20/06/2026 23:25] [ROUTE] figura=fish ip=192.168.1.10 puerto=8080
+[INTERMEDIARY] [20/06/2026 23:25] [ROUTE] figura=giraffe ip=192.168.1.10 puerto=8080
+[INTERMEDIARY] [20/06/2026 23:25] [ROUTE] figura=horse ip=192.168.1.10 puerto=8080
+[INTERMEDIARY] [20/06/2026 23:25] [ROUTE] figura=imperial_destroyer ip=192.168.1.10 puerto=8080
+[INTERMEDIARY] [20/06/2026 23:25] [ROUTE] figura=millennium_falcon ip=192.168.1.10 puerto=8080
+[INTERMEDIARY] [20/06/2026 23:26] [START] bindIp=0.0.0.0 clientPort=8081 figureServer=auto:8080
+[INTERMEDIARY] [20/06/2026 23:26] [SEED_PEER] Intermediario remoto sembrado: 127.0.0.1:2026
+[INTERMEDIARY] [20/06/2026 23:26] [LISTEN] UDP JOIN en puerto 3030
+[INTERMEDIARY] [20/06/2026 23:26] [LISTEN] TCP PEER en puerto 3031
+[INTERMEDIARY] [20/06/2026 23:26] [BROADCAST] Iniciando broadcast JOIN periodico
+[INTERMEDIARY] [20/06/2026 23:26] [PEER_ANNOUNCE] Anunciando 'INTER_HERE 8081' a 255.255.255.255:2027
+[INTERMEDIARY] [20/06/2026 23:26] [LISTEN] Clientes en 0.0.0.0:8081
+[INTERMEDIARY] [20/06/2026 23:26] [PEER_DISCOVERY] Modo local (semilla): no se ocupa UDP 2027; salida por semilla, entrada por unicast.
+[INTERMEDIARY] [20/06/2026 23:26] [SERVER_DISCOVERY] Buscando mi servidor por UDP 8090 (broadcast 255.255.255.255)...
+[INTERMEDIARY] [20/06/2026 23:26] [SERVER_DISCOVERY] Servidor encontrado: 192.168.1.10:8080
+[INTERMEDIARY] [20/06/2026 23:26] [ROUTE_TABLE] Construyendo tabla de rutas local desde 192.168.1.10:8080
+[INTERMEDIARY] [20/06/2026 23:26] [ROUTE_TABLE] Figuras locales registradas: 7 (total en tabla: 7)
+[INTERMEDIARY] [20/06/2026 23:26] [ROUTE] figura=death_star_ii ip=192.168.1.10 puerto=8080
+[INTERMEDIARY] [20/06/2026 23:26] [ROUTE] figura=dragon ip=192.168.1.10 puerto=8080
+[INTERMEDIARY] [20/06/2026 23:26] [ROUTE] figura=fish ip=192.168.1.10 puerto=8080
+[INTERMEDIARY] [20/06/2026 23:26] [ROUTE] figura=giraffe ip=192.168.1.10 puerto=8080
+[INTERMEDIARY] [20/06/2026 23:26] [ROUTE] figura=horse ip=192.168.1.10 puerto=8080
+[INTERMEDIARY] [20/06/2026 23:26] [ROUTE] figura=imperial_destroyer ip=192.168.1.10 puerto=8080
+[INTERMEDIARY] [20/06/2026 23:26] [ROUTE] figura=millennium_falcon ip=192.168.1.10 puerto=8080
+[INTERMEDIARY] [20/06/2026 23:26] [START] bindIp=0.0.0.0 clientPort=8081 figureServer=auto:8080
+[INTERMEDIARY] [20/06/2026 23:26] [SEED_PEER] Intermediario remoto sembrado: 127.0.0.1:2026
+[INTERMEDIARY] [20/06/2026 23:26] [LISTEN] UDP JOIN en puerto 3030
+[INTERMEDIARY] [20/06/2026 23:26] [BROADCAST] Iniciando broadcast JOIN periodico
+[INTERMEDIARY] [20/06/2026 23:27] [CLIENT_REQUEST] GET /list HTTP/1.1
+[INTERMEDIARY] [20/06/2026 23:27] [HTTP_LIST] Lista local enviada a cliente remoto
+[INTERMEDIARY] [20/06/2026 23:28] [ERROR] sendProtoMessage error: VSocket::TryToConnect connect IPv4: Connection refused
+[INTERMEDIARY] [20/06/2026 23:28] [ERROR] sendProtoMessage error: VSocket::TryToConnect connect IPv4: Connection refused
+[INTERMEDIARY] [20/06/2026 23:28] [ERROR] sendProtoMessage error: VSocket::TryToConnect connect IPv4: Connection refused
+[INTERMEDIARY] [20/06/2026 23:28] [ERROR] sendProtoMessage error: VSocket::TryToConnect connect IPv4: Connection refused
+[INTERMEDIARY] [20/06/2026 23:31] [START] bindIp=0.0.0.0 clientPort=8081 figureServer=auto:8080
+[INTERMEDIARY] [20/06/2026 23:31] [SEED_PEER] Intermediario remoto sembrado: 127.0.0.1:2026
+[INTERMEDIARY] [20/06/2026 23:31] [LISTEN] UDP JOIN en puerto 3030
+[INTERMEDIARY] [20/06/2026 23:31] [BROADCAST] Iniciando broadcast JOIN periodico
+[INTERMEDIARY] [20/06/2026 23:31] [LISTEN] TCP PEER en puerto 3031
+[INTERMEDIARY] [20/06/2026 23:31] [PEER_ANNOUNCE] Anunciando 'INTER_HERE 8081' a 255.255.255.255:2027
+[INTERMEDIARY] [20/06/2026 23:31] [LISTEN] Clientes en 0.0.0.0:8081
+[INTERMEDIARY] [20/06/2026 23:31] [PEER_DISCOVERY] Modo local (semilla): no se ocupa UDP 2027; salida por semilla, entrada por unicast.
+[INTERMEDIARY] [20/06/2026 23:31] [SERVER_DISCOVERY] Buscando mi servidor por UDP 8090 (broadcast 255.255.255.255)...
+[INTERMEDIARY] [20/06/2026 23:31] [SERVER_DISCOVERY] Servidor encontrado: 192.168.1.10:8080
+[INTERMEDIARY] [20/06/2026 23:31] [ROUTE_TABLE] Construyendo tabla de rutas local desde 192.168.1.10:8080
+[INTERMEDIARY] [20/06/2026 23:31] [ROUTE_TABLE] Figuras locales registradas: 7 (total en tabla: 7)
+[INTERMEDIARY] [20/06/2026 23:31] [ROUTE] figura=death_star_ii ip=192.168.1.10 puerto=8080
+[INTERMEDIARY] [20/06/2026 23:31] [ROUTE] figura=dragon ip=192.168.1.10 puerto=8080
+[INTERMEDIARY] [20/06/2026 23:31] [ROUTE] figura=fish ip=192.168.1.10 puerto=8080
+[INTERMEDIARY] [20/06/2026 23:31] [ROUTE] figura=giraffe ip=192.168.1.10 puerto=8080
+[INTERMEDIARY] [20/06/2026 23:31] [ROUTE] figura=horse ip=192.168.1.10 puerto=8080
+[INTERMEDIARY] [20/06/2026 23:31] [ROUTE] figura=imperial_destroyer ip=192.168.1.10 puerto=8080
+[INTERMEDIARY] [20/06/2026 23:31] [ROUTE] figura=millennium_falcon ip=192.168.1.10 puerto=8080
+[INTERMEDIARY] [20/06/2026 23:31] [CLIENT_REQUEST] GET /list HTTP/1.1
+[INTERMEDIARY] [20/06/2026 23:31] [HTTP_LIST] Lista local enviada a cliente remoto
+[INTERMEDIARY] [20/06/2026 23:32] [ERROR] sendProtoMessage error: VSocket::TryToConnect connect IPv4: Connection refused
+[INTERMEDIARY] [20/06/2026 23:32] [ERROR] sendProtoMessage error: VSocket::TryToConnect connect IPv4: Connection refused
+[INTERMEDIARY] [20/06/2026 23:32] [ERROR] sendProtoMessage error: VSocket::TryToConnect connect IPv4: Connection refused
+[INTERMEDIARY] [20/06/2026 23:32] [ERROR] sendProtoMessage error: VSocket::TryToConnect connect IPv4: Connection refused
+[INTERMEDIARY] [20/06/2026 23:33] [ERROR] sendProtoMessage error: VSocket::TryToConnect connect IPv4: Connection refused
+[INTERMEDIARY] [20/06/2026 23:33] [ERROR] sendProtoMessage error: VSocket::TryToConnect connect IPv4: Connection refused
+[INTERMEDIARY] [20/06/2026 23:33] [ERROR] sendProtoMessage error: VSocket::TryToConnect connect IPv4: Connection refused
+[INTERMEDIARY] [20/06/2026 23:33] [ERROR] sendProtoMessage error: VSocket::TryToConnect connect IPv4: Connection refused
+[INTERMEDIARY] [20/06/2026 23:33] [ERROR] sendProtoMessage error: VSocket::TryToConnect connect IPv4: Connection refused
+[INTERMEDIARY] [20/06/2026 23:36] [START] bindIp=0.0.0.0 clientPort=8081 figureServer=auto:8080
+[INTERMEDIARY] [20/06/2026 23:36] [SEED_PEER] Intermediario remoto sembrado: 127.0.0.1:2026
+[INTERMEDIARY] [20/06/2026 23:36] [LISTEN] UDP JOIN en puerto 3030
+[INTERMEDIARY] [20/06/2026 23:36] [BROADCAST] Iniciando broadcast JOIN periodico
+[INTERMEDIARY] [20/06/2026 23:36] [PEER_DISCOVERY] Modo local (semilla): no se ocupa UDP 2027; salida por semilla, entrada por unicast.
+[INTERMEDIARY] [20/06/2026 23:36] [LISTEN] Clientes en 0.0.0.0:8081
+[INTERMEDIARY] [20/06/2026 23:36] [PEER_ANNOUNCE] Anunciando 'INTER_HERE 8081' a 255.255.255.255:2027
+[INTERMEDIARY] [20/06/2026 23:36] [LISTEN] TCP PEER en puerto 3031
+[INTERMEDIARY] [20/06/2026 23:36] [HTTP_PEER_MERGED] 127.0.0.1:2026 figuras_nuevas=3
+[INTERMEDIARY] [20/06/2026 23:36] [SERVER_DISCOVERY] Buscando mi servidor por UDP 8090 (broadcast 255.255.255.255)...
+[INTERMEDIARY] [20/06/2026 23:36] [SERVER_DISCOVERY] Servidor encontrado: 192.168.1.10:8080
+[INTERMEDIARY] [20/06/2026 23:36] [ROUTE_TABLE] Construyendo tabla de rutas local desde 192.168.1.10:8080
+[INTERMEDIARY] [20/06/2026 23:36] [ROUTE_TABLE] Figuras locales registradas: 7 (total en tabla: 10)
+[INTERMEDIARY] [20/06/2026 23:36] [ROUTE] figura=caballo ip=127.0.0.1 puerto=2026
+[INTERMEDIARY] [20/06/2026 23:36] [ROUTE] figura=death_star_ii ip=192.168.1.10 puerto=8080
+[INTERMEDIARY] [20/06/2026 23:36] [ROUTE] figura=dragon ip=192.168.1.10 puerto=8080
+[INTERMEDIARY] [20/06/2026 23:36] [ROUTE] figura=fish ip=192.168.1.10 puerto=8080
+[INTERMEDIARY] [20/06/2026 23:36] [ROUTE] figura=furro ip=127.0.0.1 puerto=2026
+[INTERMEDIARY] [20/06/2026 23:36] [ROUTE] figura=giraffe ip=192.168.1.10 puerto=8080
+[INTERMEDIARY] [20/06/2026 23:36] [ROUTE] figura=horse ip=192.168.1.10 puerto=8080
+[INTERMEDIARY] [20/06/2026 23:36] [ROUTE] figura=imperial_destroyer ip=192.168.1.10 puerto=8080
+[INTERMEDIARY] [20/06/2026 23:36] [ROUTE] figura=millennium_falcon ip=192.168.1.10 puerto=8080
+[INTERMEDIARY] [20/06/2026 23:36] [ROUTE] figura=tortuga ip=127.0.0.1 puerto=2026
+[INTERMEDIARY] [20/06/2026 23:36] [CLIENT_REQUEST] GET /lego/index.php HTTP/1.1
+[INTERMEDIARY] [20/06/2026 23:36] [HANDLE_INDEX] Figuras disponibles: 10
+[INTERMEDIARY] [20/06/2026 23:36] [CLIENT_REQUEST] GET /lego/index.php HTTP/1.1
+[INTERMEDIARY] [20/06/2026 23:36] [HANDLE_INDEX] Figuras disponibles: 10
+[INTERMEDIARY] [20/06/2026 23:40] [START] bindIp=0.0.0.0 clientPort=8081 figureServer=auto:8080
+[INTERMEDIARY] [20/06/2026 23:40] [SEED_PEER] Intermediario remoto sembrado: 127.0.0.1:2026
+[INTERMEDIARY] [20/06/2026 23:40] [LISTEN] UDP JOIN en puerto 3030
+[INTERMEDIARY] [20/06/2026 23:40] [LISTEN] TCP PEER en puerto 3031
+[INTERMEDIARY] [20/06/2026 23:40] [PEER_ANNOUNCE] Anunciando 'INTER_HERE 8081' a 255.255.255.255:2027
+[INTERMEDIARY] [20/06/2026 23:40] [LISTEN] Clientes en 0.0.0.0:8081
+[INTERMEDIARY] [20/06/2026 23:40] [BROADCAST] Iniciando broadcast JOIN periodico
+[INTERMEDIARY] [20/06/2026 23:40] [PEER_DISCOVERY] Modo local (semilla): no se ocupa UDP 2027; salida por semilla, entrada por unicast.
+[INTERMEDIARY] [20/06/2026 23:40] [SERVER_DISCOVERY] Buscando mi servidor por UDP 8090 (broadcast 255.255.255.255)...
+[INTERMEDIARY] [20/06/2026 23:40] [SERVER_DISCOVERY] Servidor encontrado: 192.168.1.10:8080
+[INTERMEDIARY] [20/06/2026 23:40] [ROUTE_TABLE] Construyendo tabla de rutas local desde 192.168.1.10:8080
+[INTERMEDIARY] [20/06/2026 23:40] [ROUTE_TABLE] Figuras locales registradas: 7 (total en tabla: 7)
+[INTERMEDIARY] [20/06/2026 23:40] [ROUTE] figura=death_star_ii ip=192.168.1.10 puerto=8080
+[INTERMEDIARY] [20/06/2026 23:40] [ROUTE] figura=dragon ip=192.168.1.10 puerto=8080
+[INTERMEDIARY] [20/06/2026 23:40] [ROUTE] figura=fish ip=192.168.1.10 puerto=8080
+[INTERMEDIARY] [20/06/2026 23:40] [ROUTE] figura=giraffe ip=192.168.1.10 puerto=8080
+[INTERMEDIARY] [20/06/2026 23:40] [ROUTE] figura=horse ip=192.168.1.10 puerto=8080
+[INTERMEDIARY] [20/06/2026 23:40] [ROUTE] figura=imperial_destroyer ip=192.168.1.10 puerto=8080
+[INTERMEDIARY] [20/06/2026 23:40] [ROUTE] figura=millennium_falcon ip=192.168.1.10 puerto=8080
+[INTERMEDIARY] [20/06/2026 23:40] [CLIENT_REQUEST] GET /lego/index.php HTTP/1.1
+[INTERMEDIARY] [20/06/2026 23:40] [HANDLE_INDEX] Figuras disponibles: 7
+[INTERMEDIARY] [20/06/2026 23:41] [CLIENT_REQUEST] GET /list HTTP/1.1
+[INTERMEDIARY] [20/06/2026 23:41] [HTTP_LIST] Lista local enviada a cliente remoto
+[INTERMEDIARY] [20/06/2026 23:47] [START] bindIp=0.0.0.0 clientPort=8081 figureServer=auto:8080
+[INTERMEDIARY] [20/06/2026 23:47] [SEED_PEER] Intermediario remoto sembrado: 127.0.0.1:2026
+[INTERMEDIARY] [20/06/2026 23:47] [LISTEN] UDP JOIN en puerto 3030
+[INTERMEDIARY] [20/06/2026 23:47] [BROADCAST] Iniciando broadcast JOIN periodico
+[INTERMEDIARY] [20/06/2026 23:47] [PEER_DISCOVERY] Modo local (semilla): no se ocupa UDP 2027; salida por semilla, entrada por unicast.
+[INTERMEDIARY] [20/06/2026 23:47] [LISTEN] TCP PEER en puerto 3031
+[INTERMEDIARY] [20/06/2026 23:47] [LISTEN] Clientes en 0.0.0.0:8081
+[INTERMEDIARY] [20/06/2026 23:47] [HTTP_PEER_MERGED] 127.0.0.1:2026 figuras_nuevas=3
+[INTERMEDIARY] [20/06/2026 23:47] [SERVER_DISCOVERY] Buscando mi servidor por UDP 8090 (broadcast 255.255.255.255)...
+[INTERMEDIARY] [20/06/2026 23:47] [SERVER_DISCOVERY] Servidor encontrado: 192.168.1.10:8080
+[INTERMEDIARY] [20/06/2026 23:47] [ROUTE_TABLE] Construyendo tabla de rutas local desde 192.168.1.10:8080
+[INTERMEDIARY] [20/06/2026 23:47] [ROUTE_TABLE] Figuras locales registradas: 7 (total en tabla: 10)
+[INTERMEDIARY] [20/06/2026 23:47] [ROUTE] figura=caballo ip=127.0.0.1 puerto=2026
+[INTERMEDIARY] [20/06/2026 23:47] [ROUTE] figura=death_star_ii ip=192.168.1.10 puerto=8080
+[INTERMEDIARY] [20/06/2026 23:47] [ROUTE] figura=dragon ip=192.168.1.10 puerto=8080
+[INTERMEDIARY] [20/06/2026 23:47] [ROUTE] figura=fish ip=192.168.1.10 puerto=8080
+[INTERMEDIARY] [20/06/2026 23:47] [ROUTE] figura=furro ip=127.0.0.1 puerto=2026
+[INTERMEDIARY] [20/06/2026 23:47] [ROUTE] figura=giraffe ip=192.168.1.10 puerto=8080
+[INTERMEDIARY] [20/06/2026 23:47] [ROUTE] figura=horse ip=192.168.1.10 puerto=8080
+[INTERMEDIARY] [20/06/2026 23:47] [ROUTE] figura=imperial_destroyer ip=192.168.1.10 puerto=8080
+[INTERMEDIARY] [20/06/2026 23:47] [ROUTE] figura=millennium_falcon ip=192.168.1.10 puerto=8080
+[INTERMEDIARY] [20/06/2026 23:47] [ROUTE] figura=tortuga ip=127.0.0.1 puerto=2026
+[INTERMEDIARY] [20/06/2026 23:47] [PEER_ANNOUNCE] Anunciando 'INTER_HERE 8081' a 255.255.255.255:2027
+[INTERMEDIARY] [20/06/2026 23:47] [CLIENT_REQUEST] GET /lego/index.php HTTP/1.1
+[INTERMEDIARY] [20/06/2026 23:47] [HANDLE_INDEX] Figuras disponibles: 10
+[INTERMEDIARY] [20/06/2026 23:47] [CLIENT_REQUEST] GET /lego/index.php HTTP/1.1
+[INTERMEDIARY] [20/06/2026 23:47] [HANDLE_INDEX] Figuras disponibles: 10
+[INTERMEDIARY] [20/06/2026 23:48] [CLIENT_REQUEST] GET /lego/index.php HTTP/1.1
+[INTERMEDIARY] [20/06/2026 23:48] [HANDLE_INDEX] Figuras disponibles: 10
+[INTERMEDIARY] [20/06/2026 23:48] [CLIENT_REQUEST] GET /lego/list.php?figure=furro&part=2 HTTP/1.1
+[INTERMEDIARY] [20/06/2026 23:48] [HANDLE_LIST] figure=furro part=2
+[INTERMEDIARY] [20/06/2026 23:48] [REMOTE_REQUEST] GET /figura/furro/2 -> 127.0.0.1:2026
+[INTERMEDIARY] [20/06/2026 23:48] [FIGURE_FOUND] figure=furro part=2
+[INTERMEDIARY] [22/06/2026 07:47] [START] bindIp=0.0.0.0 clientPort=8081 figureServer=auto:8080
+[INTERMEDIARY] [22/06/2026 07:47] [SEED_PEER] Intermediario remoto sembrado: 127.0.0.1:2026
+[INTERMEDIARY] [22/06/2026 07:47] [LISTEN] UDP JOIN en puerto 3030
+[INTERMEDIARY] [22/06/2026 07:47] [BROADCAST] Iniciando broadcast JOIN periodico
+[INTERMEDIARY] [22/06/2026 07:47] [LISTEN] TCP PEER en puerto 3031
+[INTERMEDIARY] [22/06/2026 07:47] [PEER_ANNOUNCE] Anunciando 'INTER_HERE 8081' a 255.255.255.255:2027
+[INTERMEDIARY] [22/06/2026 07:47] [LISTEN] Clientes en 0.0.0.0:8081
+[INTERMEDIARY] [22/06/2026 07:47] [PEER_DISCOVERY] Modo local (semilla): no se ocupa UDP 2027; salida por semilla, entrada por unicast.
+[INTERMEDIARY] [22/06/2026 07:47] [HTTP_PEER_MERGED] 127.0.0.1:2026 figuras_nuevas=3
+[INTERMEDIARY] [22/06/2026 07:47] [SERVER_DISCOVERY] Buscando mi servidor por UDP 8090 (broadcast 255.255.255.255)...
+[INTERMEDIARY] [22/06/2026 07:47] [SERVER_DISCOVERY] Servidor encontrado: 10.84.140.78:8080
+[INTERMEDIARY] [22/06/2026 07:47] [ROUTE_TABLE] Construyendo tabla de rutas local desde 10.84.140.78:8080
+[INTERMEDIARY] [22/06/2026 07:47] [HTTP_PEER_MERGED] 127.0.0.1:2026 figuras_nuevas=0
+[INTERMEDIARY] [22/06/2026 07:47] [ROUTE_TABLE] Figuras locales registradas: 7 (total en tabla: 10)
+[INTERMEDIARY] [22/06/2026 07:47] [ROUTE] figura=caballo ip=127.0.0.1 puerto=2026
+[INTERMEDIARY] [22/06/2026 07:47] [ROUTE] figura=death_star_ii ip=10.84.140.78 puerto=8080
+[INTERMEDIARY] [22/06/2026 07:47] [ROUTE] figura=dragon ip=10.84.140.78 puerto=8080
+[INTERMEDIARY] [22/06/2026 07:47] [ROUTE] figura=fish ip=10.84.140.78 puerto=8080
+[INTERMEDIARY] [22/06/2026 07:47] [ROUTE] figura=furro ip=127.0.0.1 puerto=2026
+[INTERMEDIARY] [22/06/2026 07:47] [ROUTE] figura=giraffe ip=10.84.140.78 puerto=8080
+[INTERMEDIARY] [22/06/2026 07:47] [ROUTE] figura=horse ip=10.84.140.78 puerto=8080
+[INTERMEDIARY] [22/06/2026 07:47] [ROUTE] figura=imperial_destroyer ip=10.84.140.78 puerto=8080
+[INTERMEDIARY] [22/06/2026 07:47] [ROUTE] figura=millennium_falcon ip=10.84.140.78 puerto=8080
+[INTERMEDIARY] [22/06/2026 07:47] [ROUTE] figura=tortuga ip=127.0.0.1 puerto=2026
+[INTERMEDIARY] [22/06/2026 07:47] [CLIENT_REQUEST] GET /lego/index.php HTTP/1.1
+[INTERMEDIARY] [22/06/2026 07:47] [HANDLE_INDEX] Figuras disponibles: 10
+[INTERMEDIARY] [22/06/2026 07:47] [CLIENT_REQUEST] GET /lego/index.php HTTP/1.1
+[INTERMEDIARY] [22/06/2026 07:47] [HANDLE_INDEX] Figuras disponibles: 10
+[INTERMEDIARY] [22/06/2026 07:48] [CLIENT_REQUEST] GET /lego/index.php HTTP/1.1
+[INTERMEDIARY] [22/06/2026 07:48] [HANDLE_INDEX] Figuras disponibles: 10
+[INTERMEDIARY] [22/06/2026 09:51] [START] bindIp=0.0.0.0 clientPort=8081 figureServer=auto:8080
+[INTERMEDIARY] [22/06/2026 09:51] [SERVER_DISCOVERY] Buscando mi servidor por UDP 8090 (broadcast 192.168.1.255)...
+[INTERMEDIARY] [22/06/2026 09:51] [LISTEN] UDP JOIN en puerto 3030
+[INTERMEDIARY] [22/06/2026 09:51] [LISTEN] TCP PEER en puerto 3031
+[INTERMEDIARY] [22/06/2026 09:51] [LISTEN] Clientes en 0.0.0.0:8081
+[INTERMEDIARY] [22/06/2026 09:51] [BROADCAST] Iniciando broadcast JOIN periodico
+[INTERMEDIARY] [22/06/2026 09:51] [PEER_ANNOUNCE] Anunciando 'INTER_HERE 8081' a 192.168.1.255:2027
+[INTERMEDIARY] [22/06/2026 09:51] [LISTEN] UDP descubrimiento de intermediarios remotos en puerto 2027
+[INTERMEDIARY] [22/06/2026 09:51] [SERVER_DISCOVERY] Servidor encontrado: 127.0.0.1:8080
+[INTERMEDIARY] [22/06/2026 09:51] [ROUTE_TABLE] Construyendo tabla de rutas local desde 127.0.0.1:8080
+[INTERMEDIARY] [22/06/2026 09:51] [ROUTE_TABLE] Figuras locales registradas: 7 (total en tabla: 7)
+[INTERMEDIARY] [22/06/2026 09:51] [ROUTE] figura=death_star_ii ip=127.0.0.1 puerto=8080
+[INTERMEDIARY] [22/06/2026 09:51] [ROUTE] figura=dragon ip=127.0.0.1 puerto=8080
+[INTERMEDIARY] [22/06/2026 09:51] [ROUTE] figura=fish ip=127.0.0.1 puerto=8080
+[INTERMEDIARY] [22/06/2026 09:51] [ROUTE] figura=giraffe ip=127.0.0.1 puerto=8080
+[INTERMEDIARY] [22/06/2026 09:51] [ROUTE] figura=horse ip=127.0.0.1 puerto=8080
+[INTERMEDIARY] [22/06/2026 09:51] [ROUTE] figura=imperial_destroyer ip=127.0.0.1 puerto=8080
+[INTERMEDIARY] [22/06/2026 09:51] [ROUTE] figura=millennium_falcon ip=127.0.0.1 puerto=8080
+[INTERMEDIARY] [22/06/2026 09:52] [START] bindIp=0.0.0.0 clientPort=8081 figureServer=auto:8080
+[INTERMEDIARY] [22/06/2026 09:52] [SERVER_DISCOVERY] Buscando mi servidor por UDP 8090 (broadcast 192.168.1.255)...
+[INTERMEDIARY] [22/06/2026 09:52] [BROADCAST] Iniciando broadcast JOIN periodico
+[INTERMEDIARY] [22/06/2026 09:52] [PEER_ANNOUNCE] Anunciando 'INTER_HERE 8081' a 192.168.1.255:2027
+[INTERMEDIARY] [22/06/2026 09:52] [SERVER_DISCOVERY] Servidor encontrado: 127.0.0.1:8080
+[INTERMEDIARY] [22/06/2026 09:52] [ROUTE_TABLE] Construyendo tabla de rutas local desde 127.0.0.1:8080
+[INTERMEDIARY] [22/06/2026 09:52] [LISTEN] TCP PEER en puerto 3031
+[INTERMEDIARY] [22/06/2026 09:52] [LISTEN] Clientes en 0.0.0.0:8081
+[INTERMEDIARY] [22/06/2026 09:52] [LISTEN] UDP JOIN en puerto 3030
+[INTERMEDIARY] [22/06/2026 09:52] [LISTEN] UDP descubrimiento de intermediarios remotos en puerto 2027
+[INTERMEDIARY] [22/06/2026 09:52] [ROUTE_TABLE] Figuras locales registradas: 7 (total en tabla: 7)
+[INTERMEDIARY] [22/06/2026 09:52] [ROUTE] figura=death_star_ii ip=127.0.0.1 puerto=8080
+[INTERMEDIARY] [22/06/2026 09:52] [ROUTE] figura=dragon ip=127.0.0.1 puerto=8080
+[INTERMEDIARY] [22/06/2026 09:52] [ROUTE] figura=fish ip=127.0.0.1 puerto=8080
+[INTERMEDIARY] [22/06/2026 09:52] [ROUTE] figura=giraffe ip=127.0.0.1 puerto=8080
+[INTERMEDIARY] [22/06/2026 09:52] [ROUTE] figura=horse ip=127.0.0.1 puerto=8080
+[INTERMEDIARY] [22/06/2026 09:52] [ROUTE] figura=imperial_destroyer ip=127.0.0.1 puerto=8080
+[INTERMEDIARY] [22/06/2026 09:52] [ROUTE] figura=millennium_falcon ip=127.0.0.1 puerto=8080
+[INTERMEDIARY] [22/06/2026 09:53] [CLIENT_REQUEST] GET /lego/index.php HTTP/1.1
+[INTERMEDIARY] [22/06/2026 09:53] [HANDLE_INDEX] Figuras disponibles: 7
+[INTERMEDIARY] [22/06/2026 09:53] [CLIENT_REQUEST] GET /lego/list.php?figure=furro&part=1 HTTP/1.1
+[INTERMEDIARY] [22/06/2026 09:53] [HANDLE_LIST] figure=furro part=1
+[INTERMEDIARY] [22/06/2026 09:53] [FIGURE_NOT_FOUND] figure=furro part=1
+[INTERMEDIARY] [22/06/2026 09:55] [START] bindIp=0.0.0.0 clientPort=8081 figureServer=auto:8080
+[INTERMEDIARY] [22/06/2026 09:55] [SERVER_DISCOVERY] Buscando mi servidor por UDP 8090 (broadcast 192.168.1.255)...
+[INTERMEDIARY] [22/06/2026 09:55] [LISTEN] UDP JOIN en puerto 3030
+[INTERMEDIARY] [22/06/2026 09:55] [BROADCAST] Iniciando broadcast JOIN periodico
+[INTERMEDIARY] [22/06/2026 09:55] [SERVER_DISCOVERY] Servidor encontrado: 127.0.0.1:8080
+[INTERMEDIARY] [22/06/2026 09:55] [ROUTE_TABLE] Construyendo tabla de rutas local desde 127.0.0.1:8080
+[INTERMEDIARY] [22/06/2026 09:55] [LISTEN] UDP descubrimiento de intermediarios remotos en puerto 2027
+[INTERMEDIARY] [22/06/2026 09:55] [LISTEN] Clientes en 0.0.0.0:8081
+[INTERMEDIARY] [22/06/2026 09:55] [PEER_ANNOUNCE] Anunciando 'INTER_HERE 8081' a 192.168.1.255:2027
+[INTERMEDIARY] [22/06/2026 09:55] [LISTEN] TCP PEER en puerto 3031
+[INTERMEDIARY] [22/06/2026 09:55] [ROUTE_TABLE] Figuras locales registradas: 7 (total en tabla: 7)
+[INTERMEDIARY] [22/06/2026 09:55] [ROUTE] figura=death_star_ii ip=127.0.0.1 puerto=8080
+[INTERMEDIARY] [22/06/2026 09:55] [ROUTE] figura=dragon ip=127.0.0.1 puerto=8080
+[INTERMEDIARY] [22/06/2026 09:55] [ROUTE] figura=fish ip=127.0.0.1 puerto=8080
+[INTERMEDIARY] [22/06/2026 09:55] [ROUTE] figura=giraffe ip=127.0.0.1 puerto=8080
+[INTERMEDIARY] [22/06/2026 09:55] [ROUTE] figura=horse ip=127.0.0.1 puerto=8080
+[INTERMEDIARY] [22/06/2026 09:55] [ROUTE] figura=imperial_destroyer ip=127.0.0.1 puerto=8080
+[INTERMEDIARY] [22/06/2026 09:55] [ROUTE] figura=millennium_falcon ip=127.0.0.1 puerto=8080
+[INTERMEDIARY] [22/06/2026 09:55] [START] bindIp=0.0.0.0 clientPort=8081 figureServer=auto:8080
+[INTERMEDIARY] [22/06/2026 09:55] [SERVER_DISCOVERY] Buscando mi servidor por UDP 8090 (broadcast 192.168.1.255)...
+[INTERMEDIARY] [22/06/2026 09:55] [LISTEN] UDP JOIN en puerto 3030
+[INTERMEDIARY] [22/06/2026 09:55] [BROADCAST] Iniciando broadcast JOIN periodico
+[INTERMEDIARY] [22/06/2026 09:55] [LISTEN] Clientes en 0.0.0.0:8081
+[INTERMEDIARY] [22/06/2026 09:55] [PEER_ANNOUNCE] Anunciando 'INTER_HERE 8081' a 192.168.1.255:2027
+[INTERMEDIARY] [22/06/2026 09:55] [SERVER_DISCOVERY] Servidor encontrado: 127.0.0.1:8080
+[INTERMEDIARY] [22/06/2026 09:55] [ROUTE_TABLE] Construyendo tabla de rutas local desde 127.0.0.1:8080
+[INTERMEDIARY] [22/06/2026 09:55] [LISTEN] UDP descubrimiento de intermediarios remotos en puerto 2027
+[INTERMEDIARY] [22/06/2026 09:55] [LISTEN] TCP PEER en puerto 3031
+[INTERMEDIARY] [22/06/2026 09:55] [ROUTE_TABLE] Figuras locales registradas: 7 (total en tabla: 7)
+[INTERMEDIARY] [22/06/2026 09:55] [ROUTE] figura=death_star_ii ip=127.0.0.1 puerto=8080
+[INTERMEDIARY] [22/06/2026 09:55] [ROUTE] figura=dragon ip=127.0.0.1 puerto=8080
+[INTERMEDIARY] [22/06/2026 09:55] [ROUTE] figura=fish ip=127.0.0.1 puerto=8080
+[INTERMEDIARY] [22/06/2026 09:55] [ROUTE] figura=giraffe ip=127.0.0.1 puerto=8080
+[INTERMEDIARY] [22/06/2026 09:55] [ROUTE] figura=horse ip=127.0.0.1 puerto=8080
+[INTERMEDIARY] [22/06/2026 09:55] [ROUTE] figura=imperial_destroyer ip=127.0.0.1 puerto=8080
+[INTERMEDIARY] [22/06/2026 09:55] [ROUTE] figura=millennium_falcon ip=127.0.0.1 puerto=8080
+[INTERMEDIARY] [22/06/2026 09:55] [CLIENT_REQUEST] GET /lego/index.php HTTP/1.1
+[INTERMEDIARY] [22/06/2026 09:55] [HANDLE_INDEX] Figuras disponibles: 7
+[INTERMEDIARY] [22/06/2026 09:55] [CLIENT_REQUEST] GET /lego/list.php?figure=fish&part=1 HTTP/1.1
+[INTERMEDIARY] [22/06/2026 09:55] [HANDLE_LIST] figure=fish part=1
+[INTERMEDIARY] [22/06/2026 09:55] [PROTO_REQUEST] Enviando: P/G/fish:1 -> 127.0.0.1:8080
+[INTERMEDIARY] [22/06/2026 09:55] [FIGURE_FOUND] figure=fish part=1
+[INTERMEDIARY] [22/06/2026 09:55] [CLIENT_REQUEST] GET /lego/index.php HTTP/1.1
+[INTERMEDIARY] [22/06/2026 09:55] [HANDLE_INDEX] Figuras disponibles: 7
+[INTERMEDIARY] [22/06/2026 09:56] [CLIENT_REQUEST] GET /lego/list.php?figure=furro&part=1 HTTP/1.1
+[INTERMEDIARY] [22/06/2026 09:56] [HANDLE_LIST] figure=furro part=1
+[INTERMEDIARY] [22/06/2026 09:56] [FIGURE_NOT_FOUND] figure=furro part=1
+[INTERMEDIARY] [22/06/2026 09:56] [CLIENT_REQUEST] GET /lego/index.php HTTP/1.1
+[INTERMEDIARY] [22/06/2026 09:56] [HANDLE_INDEX] Figuras disponibles: 7
+[INTERMEDIARY] [22/06/2026 10:03] [START] bindIp=0.0.0.0 clientPort=8081 figureServer=auto:8080
+[INTERMEDIARY] [22/06/2026 10:03] [SEED_PEER] Intermediario remoto sembrado: 10.69.199.11:2026
+[INTERMEDIARY] [22/06/2026 10:03] [LISTEN] UDP JOIN en puerto 3030
+[INTERMEDIARY] [22/06/2026 10:03] [BROADCAST] Iniciando broadcast JOIN periodico
+[INTERMEDIARY] [22/06/2026 10:03] [LISTEN] TCP PEER en puerto 3031
+[INTERMEDIARY] [22/06/2026 10:03] [PEER_ANNOUNCE] Anunciando 'INTER_HERE 8081' a 255.255.255.255:2027
+[INTERMEDIARY] [22/06/2026 10:03] [PEER_DISCOVERY] Modo local (semilla): no se ocupa UDP 2027; salida por semilla, entrada por unicast.
+[INTERMEDIARY] [22/06/2026 10:03] [LISTEN] Clientes en 0.0.0.0:8081
+[INTERMEDIARY] [22/06/2026 10:03] [HTTP_PEER_MERGED] 10.69.199.11:2026 figuras_nuevas=3
+[INTERMEDIARY] [22/06/2026 10:03] [HTTP_PEER_MERGED] 10.69.199.11:2026 figuras_nuevas=0
+[INTERMEDIARY] [22/06/2026 10:03] [SERVER_DISCOVERY] Buscando mi servidor por UDP 8090 (broadcast 255.255.255.255)...
+[INTERMEDIARY] [22/06/2026 10:03] [SERVER_DISCOVERY] Servidor encontrado: 10.69.199.30:8080
+[INTERMEDIARY] [22/06/2026 10:03] [ROUTE_TABLE] Construyendo tabla de rutas local desde 10.69.199.30:8080
+[INTERMEDIARY] [22/06/2026 10:03] [ROUTE_TABLE] Figuras locales registradas: 7 (total en tabla: 10)
+[INTERMEDIARY] [22/06/2026 10:03] [ROUTE] figura=caballo ip=10.69.199.11 puerto=2026
+[INTERMEDIARY] [22/06/2026 10:03] [ROUTE] figura=death_star_ii ip=10.69.199.30 puerto=8080
+[INTERMEDIARY] [22/06/2026 10:03] [ROUTE] figura=dragon ip=10.69.199.30 puerto=8080
+[INTERMEDIARY] [22/06/2026 10:03] [ROUTE] figura=fish ip=10.69.199.30 puerto=8080
+[INTERMEDIARY] [22/06/2026 10:03] [ROUTE] figura=furro ip=10.69.199.11 puerto=2026
+[INTERMEDIARY] [22/06/2026 10:03] [ROUTE] figura=giraffe ip=10.69.199.30 puerto=8080
+[INTERMEDIARY] [22/06/2026 10:03] [ROUTE] figura=horse ip=10.69.199.30 puerto=8080
+[INTERMEDIARY] [22/06/2026 10:03] [ROUTE] figura=imperial_destroyer ip=10.69.199.30 puerto=8080
+[INTERMEDIARY] [22/06/2026 10:03] [ROUTE] figura=millennium_falcon ip=10.69.199.30 puerto=8080
+[INTERMEDIARY] [22/06/2026 10:03] [ROUTE] figura=tortuga ip=10.69.199.11 puerto=2026
+[INTERMEDIARY] [22/06/2026 10:04] [CLIENT_REQUEST] GET /lego/index.php HTTP/1.1
+[INTERMEDIARY] [22/06/2026 10:04] [HANDLE_INDEX] Figuras disponibles: 10
+[INTERMEDIARY] [22/06/2026 10:04] [CLIENT_REQUEST] GET /lego/list.php?figure=furro&part=1 HTTP/1.1
+[INTERMEDIARY] [22/06/2026 10:04] [HANDLE_LIST] figure=furro part=1
+[INTERMEDIARY] [22/06/2026 10:04] [REMOTE_REQUEST] GET /figura/furro/1 -> 10.69.199.11:2026
+[INTERMEDIARY] [22/06/2026 10:04] [FIGURE_FOUND] figure=furro part=1
+[INTERMEDIARY] [22/06/2026 10:04] [START] bindIp=0.0.0.0 clientPort=8081 figureServer=auto:8080
+[INTERMEDIARY] [22/06/2026 10:04] [SERVER_DISCOVERY] Buscando mi servidor por UDP 8090 (broadcast 192.168.1.255)...
+[INTERMEDIARY] [22/06/2026 10:04] [LISTEN] UDP JOIN en puerto 3030
+[INTERMEDIARY] [22/06/2026 10:04] [LISTEN] TCP PEER en puerto 3031
+[INTERMEDIARY] [22/06/2026 10:04] [LISTEN] Clientes en 0.0.0.0:8081
+[INTERMEDIARY] [22/06/2026 10:04] [PEER_ANNOUNCE] Anunciando 'INTER_HERE 8081' a 192.168.1.255:2027
+[INTERMEDIARY] [22/06/2026 10:04] [SERVER_DISCOVERY] Servidor encontrado: 127.0.0.1:8080
+[INTERMEDIARY] [22/06/2026 10:04] [ROUTE_TABLE] Construyendo tabla de rutas local desde 127.0.0.1:8080
+[INTERMEDIARY] [22/06/2026 10:04] [BROADCAST] Iniciando broadcast JOIN periodico
+[INTERMEDIARY] [22/06/2026 10:04] [LISTEN] UDP descubrimiento de intermediarios remotos en puerto 2027
+[INTERMEDIARY] [22/06/2026 10:04] [ROUTE_TABLE] Figuras locales registradas: 7 (total en tabla: 7)
+[INTERMEDIARY] [22/06/2026 10:04] [ROUTE] figura=death_star_ii ip=127.0.0.1 puerto=8080
+[INTERMEDIARY] [22/06/2026 10:04] [ROUTE] figura=dragon ip=127.0.0.1 puerto=8080
+[INTERMEDIARY] [22/06/2026 10:04] [ROUTE] figura=fish ip=127.0.0.1 puerto=8080
+[INTERMEDIARY] [22/06/2026 10:04] [ROUTE] figura=giraffe ip=127.0.0.1 puerto=8080
+[INTERMEDIARY] [22/06/2026 10:04] [ROUTE] figura=horse ip=127.0.0.1 puerto=8080
+[INTERMEDIARY] [22/06/2026 10:04] [ROUTE] figura=imperial_destroyer ip=127.0.0.1 puerto=8080
+[INTERMEDIARY] [22/06/2026 10:04] [ROUTE] figura=millennium_falcon ip=127.0.0.1 puerto=8080
+[INTERMEDIARY] [22/06/2026 10:04] [CLIENT_REQUEST] GET /lego/index.php HTTP/1.1
+[INTERMEDIARY] [22/06/2026 10:04] [HANDLE_INDEX] Figuras disponibles: 7
+[INTERMEDIARY] [22/06/2026 10:04] [CLIENT_REQUEST] GET /lego/list.php?figure=furro&part=1 HTTP/1.1
+[INTERMEDIARY] [22/06/2026 10:04] [HANDLE_LIST] figure=furro part=1
+[INTERMEDIARY] [22/06/2026 10:04] [FIGURE_NOT_FOUND] figure=furro part=1
+[INTERMEDIARY] [22/06/2026 10:10] [START] bindIp=0.0.0.0 clientPort=8081 figureServer=auto:8080
+[INTERMEDIARY] [22/06/2026 10:10] [SEED_PEER] Intermediario remoto sembrado: 10.69.199.11:2026
+[INTERMEDIARY] [22/06/2026 10:10] [LISTEN] UDP JOIN en puerto 3030
+[INTERMEDIARY] [22/06/2026 10:10] [BROADCAST] Iniciando broadcast JOIN periodico
+[INTERMEDIARY] [22/06/2026 10:10] [LISTEN] TCP PEER en puerto 3031
+[INTERMEDIARY] [22/06/2026 10:10] [PEER_ANNOUNCE] Anunciando 'INTER_HERE 8081' a 255.255.255.255:2027
+[INTERMEDIARY] [22/06/2026 10:10] [LISTEN] Clientes en 0.0.0.0:8081
+[INTERMEDIARY] [22/06/2026 10:10] [PEER_DISCOVERY] Modo local (semilla): no se ocupa UDP 2027; salida por semilla, entrada por unicast.
+[INTERMEDIARY] [22/06/2026 10:10] [HTTP_PEER_MERGED] 10.69.199.11:2026 figuras_nuevas=3
+[INTERMEDIARY] [22/06/2026 10:10] [HTTP_PEER_MERGED] 10.69.199.11:2026 figuras_nuevas=0
+[INTERMEDIARY] [22/06/2026 10:10] [SERVER_DISCOVERY] Buscando mi servidor por UDP 8090 (broadcast 255.255.255.255)...
+[INTERMEDIARY] [22/06/2026 10:11] [SERVER_DISCOVERY] Servidor encontrado: 10.69.199.30:8080
+[INTERMEDIARY] [22/06/2026 10:11] [ROUTE_TABLE] Construyendo tabla de rutas local desde 10.69.199.30:8080
+[INTERMEDIARY] [22/06/2026 10:11] [ROUTE_TABLE] Figuras locales registradas: 7 (total en tabla: 10)
+[INTERMEDIARY] [22/06/2026 10:11] [ROUTE] figura=caballo ip=10.69.199.11 puerto=2026
+[INTERMEDIARY] [22/06/2026 10:11] [ROUTE] figura=death_star_ii ip=10.69.199.30 puerto=8080
+[INTERMEDIARY] [22/06/2026 10:11] [ROUTE] figura=dragon ip=10.69.199.30 puerto=8080
+[INTERMEDIARY] [22/06/2026 10:11] [ROUTE] figura=fish ip=10.69.199.30 puerto=8080
+[INTERMEDIARY] [22/06/2026 10:11] [ROUTE] figura=furro ip=10.69.199.11 puerto=2026
+[INTERMEDIARY] [22/06/2026 10:11] [ROUTE] figura=giraffe ip=10.69.199.30 puerto=8080
+[INTERMEDIARY] [22/06/2026 10:11] [ROUTE] figura=horse ip=10.69.199.30 puerto=8080
+[INTERMEDIARY] [22/06/2026 10:11] [ROUTE] figura=imperial_destroyer ip=10.69.199.30 puerto=8080
+[INTERMEDIARY] [22/06/2026 10:11] [ROUTE] figura=millennium_falcon ip=10.69.199.30 puerto=8080
+[INTERMEDIARY] [22/06/2026 10:11] [ROUTE] figura=tortuga ip=10.69.199.11 puerto=2026
+[INTERMEDIARY] [22/06/2026 10:19] [START] bindIp=0.0.0.0 clientPort=8081 figureServer=auto:8080
+[INTERMEDIARY] [22/06/2026 10:19] [LISTEN] UDP JOIN en puerto 3030
+[INTERMEDIARY] [22/06/2026 10:19] [BROADCAST] Iniciando broadcast JOIN periodico
+[INTERMEDIARY] [22/06/2026 10:19] [SERVER_DISCOVERY] Buscando mi servidor por UDP 8090 (broadcast 192.168.1.255)...
+[INTERMEDIARY] [22/06/2026 10:19] [LISTEN] TCP PEER en puerto 3031
+[INTERMEDIARY] [22/06/2026 10:19] [PEER_ANNOUNCE] Anunciando 'INTER_HERE 8081' a 192.168.1.255:2027
+[INTERMEDIARY] [22/06/2026 10:19] [LISTEN] UDP descubrimiento de intermediarios remotos en puerto 2027
+[INTERMEDIARY] [22/06/2026 10:19] [LISTEN] Clientes en 0.0.0.0:8081
+[INTERMEDIARY] [22/06/2026 10:19] [SERVER_DISCOVERY] Servidor encontrado: 192.168.1.30:8080
+[INTERMEDIARY] [22/06/2026 10:19] [ROUTE_TABLE] Construyendo tabla de rutas local desde 192.168.1.30:8080
+[INTERMEDIARY] [22/06/2026 10:19] [ROUTE_TABLE] Figuras locales registradas: 7 (total en tabla: 7)
+[INTERMEDIARY] [22/06/2026 10:19] [ROUTE] figura=death_star_ii ip=192.168.1.30 puerto=8080
+[INTERMEDIARY] [22/06/2026 10:19] [ROUTE] figura=dragon ip=192.168.1.30 puerto=8080
+[INTERMEDIARY] [22/06/2026 10:19] [ROUTE] figura=fish ip=192.168.1.30 puerto=8080
+[INTERMEDIARY] [22/06/2026 10:19] [ROUTE] figura=giraffe ip=192.168.1.30 puerto=8080
+[INTERMEDIARY] [22/06/2026 10:19] [ROUTE] figura=horse ip=192.168.1.30 puerto=8080
+[INTERMEDIARY] [22/06/2026 10:19] [ROUTE] figura=imperial_destroyer ip=192.168.1.30 puerto=8080
+[INTERMEDIARY] [22/06/2026 10:19] [ROUTE] figura=millennium_falcon ip=192.168.1.30 puerto=8080
+[INTERMEDIARY] [22/06/2026 10:19] [PEER_DISCOVERED] 192.168.1.11:2026
+[INTERMEDIARY] [22/06/2026 10:19] [HTTP_PEER_ADDED] 192.168.1.11:2026
+[INTERMEDIARY] [22/06/2026 10:19] [HTTP_PEER_MERGED] 192.168.1.11:2026 figuras_nuevas=3
+[INTERMEDIARY] [22/06/2026 10:19] [PEER_DISCOVERED] 192.168.1.11:2026
+[INTERMEDIARY] [22/06/2026 10:19] [PEER_DISCOVERED] 192.168.1.11:2026
+[INTERMEDIARY] [22/06/2026 10:19] [PEER_DISCOVERED] 192.168.1.11:2026
+[INTERMEDIARY] [22/06/2026 10:19] [CLIENT_REQUEST] GET /lego/index.php HTTP/1.1
+[INTERMEDIARY] [22/06/2026 10:19] [HANDLE_INDEX] Figuras disponibles: 10
+[INTERMEDIARY] [22/06/2026 10:19] [CLIENT_REQUEST] GET /lego/list.php?figure=furro&part=2 HTTP/1.1
+[INTERMEDIARY] [22/06/2026 10:19] [HANDLE_LIST] figure=furro part=2
+[INTERMEDIARY] [22/06/2026 10:19] [REMOTE_REQUEST] GET /figura/furro/2 -> 192.168.1.11:2026
+[INTERMEDIARY] [22/06/2026 10:19] [FIGURE_FOUND] figure=furro part=2
+[INTERMEDIARY] [22/06/2026 10:19] [PEER_DISCOVERED] 192.168.1.11:2026
+[INTERMEDIARY] [22/06/2026 10:19] [PEER_DISCOVERED] 192.168.1.11:2026
+[INTERMEDIARY] [22/06/2026 10:19] [PEER_DISCOVERED] 192.168.1.11:2026
+[INTERMEDIARY] [22/06/2026 10:20] [PEER_DISCOVERED] 192.168.1.11:2026
+[INTERMEDIARY] [22/06/2026 10:20] [PEER_DISCOVERED] 192.168.1.11:2026
+[INTERMEDIARY] [22/06/2026 10:20] [PEER_DISCOVERED] 192.168.1.11:2026
+[INTERMEDIARY] [22/06/2026 10:20] [PEER_DISCOVERED] 192.168.1.11:2026
+[INTERMEDIARY] [22/06/2026 10:20] [PEER_DISCOVERED] 192.168.1.11:2026
+[INTERMEDIARY] [22/06/2026 10:20] [PEER_DISCOVERED] 192.168.1.11:2026
+[INTERMEDIARY] [22/06/2026 10:20] [PEER_DISCOVERED] 192.168.1.11:2026
+[INTERMEDIARY] [22/06/2026 10:20] [START] bindIp=0.0.0.0 clientPort=8081 figureServer=auto:8080
+[INTERMEDIARY] [22/06/2026 10:20] [SEED_PEER] Intermediario remoto sembrado: 10.69.199.11:2026
+[INTERMEDIARY] [22/06/2026 10:20] [LISTEN] UDP JOIN en puerto 3030
+[INTERMEDIARY] [22/06/2026 10:20] [BROADCAST] Iniciando broadcast JOIN periodico
+[INTERMEDIARY] [22/06/2026 10:20] [LISTEN] Clientes en 0.0.0.0:8081
+[INTERMEDIARY] [22/06/2026 10:20] [PEER_ANNOUNCE] Anunciando 'INTER_HERE 8081' a 255.255.255.255:2027
+[INTERMEDIARY] [22/06/2026 10:20] [PEER_DISCOVERY] Modo local (semilla): no se ocupa UDP 2027; salida por semilla, entrada por unicast.
+[INTERMEDIARY] [22/06/2026 10:20] [LISTEN] TCP PEER en puerto 3031
+[INTERMEDIARY] [22/06/2026 10:20] [ERROR] sendProtoMessage error: VSocket::TryToConnect connect IPv4: Network is unreachable
+[INTERMEDIARY] [22/06/2026 10:20] [ERROR] sendProtoMessage error: VSocket::TryToConnect connect IPv4: Network is unreachable
+[INTERMEDIARY] [22/06/2026 10:20] [SERVER_DISCOVERY] Buscando mi servidor por UDP 8090 (broadcast 255.255.255.255)...
+[INTERMEDIARY] [22/06/2026 10:20] [SERVER_DISCOVERY] Servidor encontrado: 127.0.0.1:8080
+[INTERMEDIARY] [22/06/2026 10:20] [ROUTE_TABLE] Construyendo tabla de rutas local desde 127.0.0.1:8080
+[INTERMEDIARY] [22/06/2026 10:20] [ROUTE_TABLE] Figuras locales registradas: 7 (total en tabla: 7)
+[INTERMEDIARY] [22/06/2026 10:20] [ROUTE] figura=death_star_ii ip=127.0.0.1 puerto=8080
+[INTERMEDIARY] [22/06/2026 10:20] [ROUTE] figura=dragon ip=127.0.0.1 puerto=8080
+[INTERMEDIARY] [22/06/2026 10:20] [ROUTE] figura=fish ip=127.0.0.1 puerto=8080
+[INTERMEDIARY] [22/06/2026 10:20] [ROUTE] figura=giraffe ip=127.0.0.1 puerto=8080
+[INTERMEDIARY] [22/06/2026 10:20] [ROUTE] figura=horse ip=127.0.0.1 puerto=8080
+[INTERMEDIARY] [22/06/2026 10:20] [ROUTE] figura=imperial_destroyer ip=127.0.0.1 puerto=8080
+[INTERMEDIARY] [22/06/2026 10:20] [ROUTE] figura=millennium_falcon ip=127.0.0.1 puerto=8080
+[INTERMEDIARY] [22/06/2026 10:20] [ERROR] sendProtoMessage error: VSocket::TryToConnect connect IPv4: Network is unreachable
+[INTERMEDIARY] [22/06/2026 10:20] [START] bindIp=0.0.0.0 clientPort=8081 figureServer=auto:8080
+[INTERMEDIARY] [22/06/2026 10:20] [SERVER_DISCOVERY] Buscando mi servidor por UDP 8090 (broadcast 192.168.1.255)...
+[INTERMEDIARY] [22/06/2026 10:20] [LISTEN] Clientes en 0.0.0.0:8081
+[INTERMEDIARY] [22/06/2026 10:20] [LISTEN] UDP descubrimiento de intermediarios remotos en puerto 2027
+[INTERMEDIARY] [22/06/2026 10:20] [SERVER_DISCOVERY] Servidor encontrado: 192.168.1.30:8080
+[INTERMEDIARY] [22/06/2026 10:20] [ROUTE_TABLE] Construyendo tabla de rutas local desde 192.168.1.30:8080
+[INTERMEDIARY] [22/06/2026 10:20] [PEER_ANNOUNCE] Anunciando 'INTER_HERE 8081' a 192.168.1.255:2027
+[INTERMEDIARY] [22/06/2026 10:20] [LISTEN] TCP PEER en puerto 3031
+[INTERMEDIARY] [22/06/2026 10:20] [LISTEN] UDP JOIN en puerto 3030
+[INTERMEDIARY] [22/06/2026 10:20] [BROADCAST] Iniciando broadcast JOIN periodico
+[INTERMEDIARY] [22/06/2026 10:20] [ROUTE_TABLE] Figuras locales registradas: 7 (total en tabla: 7)
+[INTERMEDIARY] [22/06/2026 10:20] [ROUTE] figura=death_star_ii ip=192.168.1.30 puerto=8080
+[INTERMEDIARY] [22/06/2026 10:20] [ROUTE] figura=dragon ip=192.168.1.30 puerto=8080
+[INTERMEDIARY] [22/06/2026 10:20] [ROUTE] figura=fish ip=192.168.1.30 puerto=8080
+[INTERMEDIARY] [22/06/2026 10:20] [ROUTE] figura=giraffe ip=192.168.1.30 puerto=8080
+[INTERMEDIARY] [22/06/2026 10:20] [ROUTE] figura=horse ip=192.168.1.30 puerto=8080
+[INTERMEDIARY] [22/06/2026 10:20] [ROUTE] figura=imperial_destroyer ip=192.168.1.30 puerto=8080
+[INTERMEDIARY] [22/06/2026 10:20] [ROUTE] figura=millennium_falcon ip=192.168.1.30 puerto=8080
+[INTERMEDIARY] [22/06/2026 10:20] [PEER_DISCOVERED] 192.168.1.11:2026
+[INTERMEDIARY] [22/06/2026 10:20] [HTTP_PEER_ADDED] 192.168.1.11:2026
+[INTERMEDIARY] [22/06/2026 10:20] [HTTP_PEER_MERGED] 192.168.1.11:2026 figuras_nuevas=3
+[INTERMEDIARY] [22/06/2026 10:21] [PEER_DISCOVERED] 192.168.1.11:2026
+[INTERMEDIARY] [22/06/2026 10:21] [PEER_DISCOVERED] 192.168.1.11:2026
+[INTERMEDIARY] [22/06/2026 10:21] [CLIENT_REQUEST] GET /lego/index.php HTTP/1.1
+[INTERMEDIARY] [22/06/2026 10:21] [HANDLE_INDEX] Figuras disponibles: 10
+[INTERMEDIARY] [22/06/2026 10:21] [CLIENT_REQUEST] GET /lego/list.php?figure=tortuga&part=1 HTTP/1.1
+[INTERMEDIARY] [22/06/2026 10:21] [HANDLE_LIST] figure=tortuga part=1
+[INTERMEDIARY] [22/06/2026 10:21] [REMOTE_REQUEST] GET /figura/tortuga/1 -> 192.168.1.11:2026
+[INTERMEDIARY] [22/06/2026 10:21] [FIGURE_FOUND] figure=tortuga part=1
+[INTERMEDIARY] [22/06/2026 10:21] [PEER_DISCOVERED] 192.168.1.11:2026
+[INTERMEDIARY] [22/06/2026 10:21] [PEER_DISCOVERED] 192.168.1.11:2026
+[INTERMEDIARY] [22/06/2026 10:21] [PEER_DISCOVERED] 192.168.1.11:2026
+[INTERMEDIARY] [22/06/2026 10:21] [PEER_DISCOVERED] 192.168.1.11:2026
+[INTERMEDIARY] [22/06/2026 10:21] [PEER_DISCOVERED] 192.168.1.11:2026
+[INTERMEDIARY] [22/06/2026 10:21] [PEER_DISCOVERED] 192.168.1.11:2026
+[INTERMEDIARY] [22/06/2026 10:22] [PEER_DISCOVERED] 192.168.1.11:2026
+[INTERMEDIARY] [22/06/2026 10:22] [PEER_DISCOVERED] 192.168.1.11:2026
+[INTERMEDIARY] [22/06/2026 10:22] [PEER_DISCOVERED] 192.168.1.11:2026
+[INTERMEDIARY] [22/06/2026 10:22] [PEER_DISCOVERED] 192.168.1.11:2026
+[INTERMEDIARY] [22/06/2026 10:22] [PEER_DISCOVERED] 192.168.1.11:2026
+[INTERMEDIARY] [22/06/2026 10:22] [PEER_DISCOVERED] 192.168.1.11:2026
+[INTERMEDIARY] [22/06/2026 10:22] [PEER_DISCOVERED] 192.168.1.11:2026
+[INTERMEDIARY] [22/06/2026 10:22] [PEER_DISCOVERED] 192.168.1.11:2026
+[INTERMEDIARY] [22/06/2026 10:23] [PEER_DISCOVERED] 192.168.1.11:2026
+[INTERMEDIARY] [22/06/2026 10:23] [PEER_DISCOVERED] 192.168.1.11:2026
+[INTERMEDIARY] [22/06/2026 10:23] [PEER_DISCOVERED] 192.168.1.11:2026
+[INTERMEDIARY] [22/06/2026 10:23] [PEER_DISCOVERED] 192.168.1.11:2026
+[INTERMEDIARY] [22/06/2026 10:23] [PEER_DISCOVERED] 192.168.1.11:2026
+[INTERMEDIARY] [22/06/2026 10:23] [PEER_DISCOVERED] 192.168.1.11:2026
+[INTERMEDIARY] [22/06/2026 10:24] [PEER_DISCOVERED] 192.168.1.11:2026
+[INTERMEDIARY] [22/06/2026 10:24] [PEER_DISCOVERED] 192.168.1.11:2026
+[INTERMEDIARY] [22/06/2026 10:24] [PEER_DISCOVERED] 192.168.1.11:2026
+[INTERMEDIARY] [22/06/2026 10:24] [PEER_DISCOVERED] 192.168.1.11:2026
+[INTERMEDIARY] [22/06/2026 10:24] [PEER_DISCOVERED] 192.168.1.11:2026
+[INTERMEDIARY] [22/06/2026 10:24] [PEER_DISCOVERED] 192.168.1.11:2026
+[INTERMEDIARY] [22/06/2026 10:24] [PEER_DISCOVERED] 192.168.1.11:2026
+[INTERMEDIARY] [22/06/2026 10:24] [PEER_DISCOVERED] 192.168.1.11:2026
+[INTERMEDIARY] [22/06/2026 10:24] [PEER_DISCOVERED] 192.168.1.11:2026
+[INTERMEDIARY] [22/06/2026 10:24] [PEER_DISCOVERED] 192.168.1.11:2026
+[INTERMEDIARY] [22/06/2026 10:25] [PEER_DISCOVERED] 192.168.1.11:2026
+[INTERMEDIARY] [22/06/2026 10:25] [PEER_DISCOVERED] 192.168.1.11:2026
+[INTERMEDIARY] [22/06/2026 10:25] [PEER_DISCOVERED] 192.168.1.11:2026
+[INTERMEDIARY] [22/06/2026 10:25] [PEER_DISCOVERED] 192.168.1.11:2026
+[INTERMEDIARY] [22/06/2026 10:25] [PEER_DISCOVERED] 192.168.1.11:2026
+[INTERMEDIARY] [22/06/2026 10:25] [PEER_DISCOVERED] 192.168.1.11:2026
+[INTERMEDIARY] [22/06/2026 10:25] [PEER_DISCOVERED] 192.168.1.11:2026
+[INTERMEDIARY] [22/06/2026 10:25] [PEER_DISCOVERED] 192.168.1.11:2026
+[INTERMEDIARY] [22/06/2026 10:26] [PEER_DISCOVERED] 192.168.1.11:2026
+[INTERMEDIARY] [22/06/2026 10:26] [PEER_DISCOVERED] 192.168.1.11:2026
+[INTERMEDIARY] [22/06/2026 10:26] [PEER_DISCOVERED] 192.168.1.11:2026
+[INTERMEDIARY] [22/06/2026 10:26] [PEER_DISCOVERED] 192.168.1.11:2026
+[INTERMEDIARY] [22/06/2026 10:26] [PEER_DISCOVERED] 192.168.1.11:2026
+[INTERMEDIARY] [22/06/2026 10:26] [PEER_DISCOVERED] 192.168.1.11:2026
+[INTERMEDIARY] [22/06/2026 10:26] [PEER_DISCOVERED] 192.168.1.11:2026
+[INTERMEDIARY] [22/06/2026 10:26] [PEER_DISCOVERED] 192.168.1.11:2026
+[INTERMEDIARY] [22/06/2026 10:26] [PEER_DISCOVERED] 192.168.1.11:2026
+[INTERMEDIARY] [22/06/2026 10:26] [PEER_DISCOVERED] 192.168.1.11:2026
+[INTERMEDIARY] [22/06/2026 10:26] [PEER_DISCOVERED] 192.168.1.11:2026
+[INTERMEDIARY] [22/06/2026 10:26] [PEER_DISCOVERED] 192.168.1.11:2026
+[INTERMEDIARY] [22/06/2026 10:27] [PEER_DISCOVERED] 192.168.1.11:2026
+[INTERMEDIARY] [22/06/2026 10:27] [PEER_DISCOVERED] 192.168.1.11:2026
+[INTERMEDIARY] [22/06/2026 10:27] [PEER_DISCOVERED] 192.168.1.11:2026
+[INTERMEDIARY] [22/06/2026 10:27] [PEER_DISCOVERED] 192.168.1.11:2026
+[INTERMEDIARY] [22/06/2026 10:27] [PEER_DISCOVERED] 192.168.1.11:2026
+[INTERMEDIARY] [22/06/2026 10:27] [PEER_DISCOVERED] 192.168.1.11:2026
+[INTERMEDIARY] [22/06/2026 10:27] [PEER_DISCOVERED] 192.168.1.11:2026
+[INTERMEDIARY] [22/06/2026 10:27] [PEER_DISCOVERED] 192.168.1.11:2026
+[INTERMEDIARY] [22/06/2026 10:27] [PEER_DISCOVERED] 192.168.1.11:2026
+[INTERMEDIARY] [22/06/2026 10:27] [PEER_DISCOVERED] 192.168.1.11:2026
+[INTERMEDIARY] [22/06/2026 10:28] [PEER_DISCOVERED] 192.168.1.11:2026
+[INTERMEDIARY] [22/06/2026 10:28] [PEER_DISCOVERED] 192.168.1.11:2026
+[INTERMEDIARY] [22/06/2026 10:28] [PEER_DISCOVERED] 192.168.1.11:2026
+[INTERMEDIARY] [22/06/2026 10:28] [PEER_DISCOVERED] 192.168.1.11:2026
+[INTERMEDIARY] [22/06/2026 10:28] [PEER_DISCOVERED] 192.168.1.11:2026
+[INTERMEDIARY] [22/06/2026 10:28] [PEER_DISCOVERED] 192.168.1.11:2026
+[INTERMEDIARY] [22/06/2026 10:28] [PEER_DISCOVERED] 192.168.1.11:2026
+[INTERMEDIARY] [22/06/2026 10:28] [PEER_DISCOVERED] 192.168.1.11:2026
+[INTERMEDIARY] [22/06/2026 10:28] [PEER_DISCOVERED] 192.168.1.11:2026
+[INTERMEDIARY] [22/06/2026 10:28] [PEER_DISCOVERED] 192.168.1.11:2026
+[INTERMEDIARY] [22/06/2026 10:29] [PEER_DISCOVERED] 192.168.1.11:2026
+[INTERMEDIARY] [22/06/2026 10:29] [PEER_DISCOVERED] 192.168.1.11:2026
+[INTERMEDIARY] [22/06/2026 10:29] [PEER_DISCOVERED] 192.168.1.11:2026
+[INTERMEDIARY] [22/06/2026 10:29] [PEER_DISCOVERED] 192.168.1.11:2026
+[INTERMEDIARY] [22/06/2026 10:29] [PEER_DISCOVERED] 192.168.1.11:2026
+[INTERMEDIARY] [22/06/2026 10:29] [PEER_DISCOVERED] 192.168.1.11:2026
+[INTERMEDIARY] [22/06/2026 10:29] [PEER_DISCOVERED] 192.168.1.11:2026
+[INTERMEDIARY] [22/06/2026 10:29] [PEER_DISCOVERED] 192.168.1.11:2026
+[INTERMEDIARY] [22/06/2026 10:29] [PEER_DISCOVERED] 192.168.1.11:2026
+[INTERMEDIARY] [22/06/2026 10:29] [PEER_DISCOVERED] 192.168.1.11:2026
+[INTERMEDIARY] [22/06/2026 10:29] [PEER_DISCOVERED] 192.168.1.11:2026
+[INTERMEDIARY] [22/06/2026 10:30] [PEER_DISCOVERED] 192.168.1.11:2026
+[INTERMEDIARY] [22/06/2026 10:30] [PEER_DISCOVERED] 192.168.1.11:2026
+[INTERMEDIARY] [22/06/2026 10:30] [PEER_DISCOVERED] 192.168.1.11:2026
+[INTERMEDIARY] [22/06/2026 10:30] [PEER_DISCOVERED] 192.168.1.11:2026
+[INTERMEDIARY] [22/06/2026 10:30] [PEER_DISCOVERED] 192.168.1.11:2026
+[INTERMEDIARY] [22/06/2026 10:30] [PEER_DISCOVERED] 192.168.1.11:2026
+[INTERMEDIARY] [22/06/2026 10:30] [PEER_DISCOVERED] 192.168.1.11:2026
+[INTERMEDIARY] [22/06/2026 10:30] [PEER_DISCOVERED] 192.168.1.11:2026
+[INTERMEDIARY] [22/06/2026 10:30] [PEER_DISCOVERED] 192.168.1.11:2026
+[INTERMEDIARY] [22/06/2026 10:31] [PEER_DISCOVERED] 192.168.1.11:2026
+[INTERMEDIARY] [22/06/2026 10:31] [PEER_DISCOVERED] 192.168.1.11:2026
+[INTERMEDIARY] [22/06/2026 10:31] [PEER_DISCOVERED] 192.168.1.11:2026
+[INTERMEDIARY] [22/06/2026 10:31] [PEER_DISCOVERED] 192.168.1.11:2026
+[INTERMEDIARY] [22/06/2026 10:31] [PEER_DISCOVERED] 192.168.1.11:2026
+[INTERMEDIARY] [22/06/2026 10:31] [PEER_DISCOVERED] 192.168.1.11:2026
+[INTERMEDIARY] [22/06/2026 10:31] [PEER_DISCOVERED] 192.168.1.11:2026
+[INTERMEDIARY] [22/06/2026 10:31] [PEER_DISCOVERED] 192.168.1.11:2026
+[INTERMEDIARY] [22/06/2026 10:31] [PEER_DISCOVERED] 192.168.1.11:2026
+[INTERMEDIARY] [22/06/2026 10:31] [PEER_DISCOVERED] 192.168.1.11:2026
+[INTERMEDIARY] [22/06/2026 10:31] [PEER_DISCOVERED] 192.168.1.11:2026
+[INTERMEDIARY] [22/06/2026 10:32] [PEER_DISCOVERED] 192.168.1.11:2026
+[INTERMEDIARY] [22/06/2026 10:32] [PEER_DISCOVERED] 192.168.1.11:2026
+[INTERMEDIARY] [22/06/2026 10:32] [PEER_DISCOVERED] 192.168.1.11:2026
+[INTERMEDIARY] [22/06/2026 10:32] [PEER_DISCOVERED] 192.168.1.11:2026
+[INTERMEDIARY] [22/06/2026 10:32] [PEER_DISCOVERED] 192.168.1.11:2026
+[INTERMEDIARY] [22/06/2026 10:32] [PEER_DISCOVERED] 192.168.1.11:2026
+[INTERMEDIARY] [22/06/2026 10:32] [PEER_DISCOVERED] 192.168.1.11:2026
+[INTERMEDIARY] [22/06/2026 10:32] [PEER_DISCOVERED] 192.168.1.11:2026
+[INTERMEDIARY] [22/06/2026 10:32] [PEER_DISCOVERED] 192.168.1.11:2026
+[INTERMEDIARY] [22/06/2026 10:32] [PEER_DISCOVERED] 192.168.1.11:2026
+[INTERMEDIARY] [22/06/2026 10:32] [PEER_DISCOVERED] 192.168.1.11:2026
+[INTERMEDIARY] [22/06/2026 10:33] [PEER_DISCOVERED] 192.168.1.11:2026
+[INTERMEDIARY] [22/06/2026 10:33] [PEER_DISCOVERED] 192.168.1.11:2026
+[INTERMEDIARY] [22/06/2026 10:33] [PEER_DISCOVERED] 192.168.1.11:2026
+[INTERMEDIARY] [22/06/2026 10:33] [PEER_DISCOVERED] 192.168.1.11:2026
+[INTERMEDIARY] [22/06/2026 10:33] [PEER_DISCOVERED] 192.168.1.11:2026
+[INTERMEDIARY] [22/06/2026 10:33] [PEER_DISCOVERED] 192.168.1.11:2026
+[INTERMEDIARY] [22/06/2026 10:33] [PEER_DISCOVERED] 192.168.1.11:2026
+[INTERMEDIARY] [22/06/2026 10:33] [PEER_DISCOVERED] 192.168.1.11:2026
+[INTERMEDIARY] [22/06/2026 10:33] [PEER_DISCOVERED] 192.168.1.11:2026
+[INTERMEDIARY] [22/06/2026 10:33] [PEER_DISCOVERED] 192.168.1.11:2026
+[INTERMEDIARY] [22/06/2026 10:34] [PEER_DISCOVERED] 192.168.1.11:2026
+[INTERMEDIARY] [22/06/2026 10:34] [PEER_DISCOVERED] 192.168.1.11:2026
+[INTERMEDIARY] [22/06/2026 10:34] [PEER_DISCOVERED] 192.168.1.11:2026
+[INTERMEDIARY] [22/06/2026 10:34] [PEER_DISCOVERED] 192.168.1.11:2026
+[INTERMEDIARY] [22/06/2026 10:34] [PEER_DISCOVERED] 192.168.1.11:2026
+[INTERMEDIARY] [22/06/2026 10:34] [PEER_DISCOVERED] 192.168.1.11:2026
+[INTERMEDIARY] [22/06/2026 10:34] [PEER_DISCOVERED] 192.168.1.11:2026
+[INTERMEDIARY] [22/06/2026 10:35] [PEER_DISCOVERED] 192.168.1.11:2026
+[INTERMEDIARY] [22/06/2026 10:35] [PEER_DISCOVERED] 192.168.1.11:2026
+[INTERMEDIARY] [22/06/2026 10:35] [PEER_DISCOVERED] 192.168.1.11:2026
+[INTERMEDIARY] [22/06/2026 10:35] [PEER_DISCOVERED] 192.168.1.11:2026
+[INTERMEDIARY] [22/06/2026 10:35] [PEER_DISCOVERED] 192.168.1.11:2026
+[INTERMEDIARY] [22/06/2026 10:35] [PEER_DISCOVERED] 192.168.1.11:2026
+[INTERMEDIARY] [22/06/2026 10:35] [PEER_DISCOVERED] 192.168.1.11:2026
+[INTERMEDIARY] [22/06/2026 10:35] [PEER_DISCOVERED] 192.168.1.11:2026
+[INTERMEDIARY] [22/06/2026 10:35] [PEER_DISCOVERED] 192.168.1.11:2026
+[INTERMEDIARY] [22/06/2026 10:35] [PEER_DISCOVERED] 192.168.1.11:2026
+[INTERMEDIARY] [22/06/2026 10:36] [PEER_DISCOVERED] 192.168.1.11:2026
